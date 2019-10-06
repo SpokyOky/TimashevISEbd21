@@ -44,12 +44,16 @@ namespace lab1WinForms
             {
                 Brush b = new SolidBrush(SecondaryColor);
                 List<Point> pointsAirplane = new List<Point>(4);
-                pointsAirplane.Add(new Point(globalPosX + 110, globalPosY + 15));
-                pointsAirplane.Add(new Point(globalPosX + 105, globalPosY + 20));
-                pointsAirplane.Add(new Point(globalPosX + 112, globalPosY + 20));
-                pointsAirplane.Add(new Point(globalPosX + 110, globalPosY + 18));
+
+                int shiftX = i * 8;
+                int shiftY = i * 2;
+                pointsAirplane.Add(new Point(globalPosX + 110 - shiftX, globalPosY + 15 + shiftY));
+                pointsAirplane.Add(new Point(globalPosX + 105 - shiftX, globalPosY + 20 + shiftY));
+                pointsAirplane.Add(new Point(globalPosX + 112 - shiftX, globalPosY + 20 + shiftY));
+                pointsAirplane.Add(new Point(globalPosX + 110 - shiftX, globalPosY + 18 + shiftY));
 
                 g.FillPolygon(b, pointsAirplane.ToArray<Point>());
+                b.Dispose();
             }
         }
     }

@@ -30,7 +30,7 @@ namespace lab1WinForms
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
 
-        public Airplanes.AirplanesCount airplanesCount { private set; get; }
+        public Airplanes.AirplanesCount Count { private set; get; }
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, bool gunOnBoard, bool helicoptersOnBoard,
@@ -42,7 +42,7 @@ namespace lab1WinForms
             SecondaryColor = secondaryColor;
             GunOnBoard = gunOnBoard; 
             HelicoptersOnBoard = helicoptersOnBoard;
-            this.airplanesCount = airplanesCount;
+            Count = airplanesCount;
         }
 
         public void SetPosition(int x, int y, int widht, int height)
@@ -163,7 +163,7 @@ namespace lab1WinForms
                 p.Dispose();
             }
 
-            Airplanes airplanes = new Airplanes(Airplanes.AirplanesCount.FOUR, 
+            Airplanes airplanes = new Airplanes(Count, 
                 PrimaryColor, SecondaryColor, posX, posY);
             airplanes.DrawAirplanes(g);
         }
