@@ -25,12 +25,22 @@ namespace lab1WinForms
             Graphics g = Graphics.FromImage(bmp);
             aircraftCarrier.DrawCarrier(g);
             pictureBoxCarrier.Image = bmp;
-        }        private void btnCreate_Click(object sender, EventArgs e)
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
         {
-            aircraftCarrier = new AircraftCarrier(200, 1000, Color.Gray, Color.White, true, false);
+            int MaxSpeed = 200;
+            int Weight = 1000;
+            Color PrimaryColor = Color.Gray;
+            Color SecondaryColor = Color.White;
+            bool GunOnBoard = true;
+            bool HelicoptersOnBoard = true;
+            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor, GunOnBoard, HelicoptersOnBoard);
+
             aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();
-        }
+        }
+
         private void btnMove_Click(object sender, EventArgs e)
         {
             string s = (sender as Button).Name;
