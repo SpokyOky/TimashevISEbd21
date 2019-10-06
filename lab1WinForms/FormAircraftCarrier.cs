@@ -35,7 +35,8 @@ namespace lab1WinForms
             Color SecondaryColor = Color.White;
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
-            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor, GunOnBoard, HelicoptersOnBoard);
+            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor,
+                GunOnBoard, HelicoptersOnBoard, Airplanes.AirplanesCount.SIX);
 
             aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();
