@@ -1,35 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 namespace lab1WinForms
 {
-    class AircraftCarrier : WarShip
+    class WarShip : WarShipBase
     {
-        public bool GunOnBoard { private set; get; }
-        public bool HelicoptersOnBoard { private set; get; }
-        public Airplanes.AirplanesCount Count { private set; get; }
+        public Color SecondaryColor { protected set; get; }
 
-        public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, Airplanes.AirplanesCount airplanesCount,
-            bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor, secondaryColor)
+        public WarShip(int maxSpeed, double weight, Color primaryColor,
+            Color secondaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             PrimaryColor = primaryColor;
             SecondaryColor = secondaryColor;
-            GunOnBoard = gunOnBoard; 
-            HelicoptersOnBoard = helicoptersOnBoard;
-            Count = airplanesCount;
+        }
+
+        public override void MoveTransport(Direction direction)
+        {
+            int shift = Convert.ToInt32(MaxSpeed * 100 / Weight);
+            switch (direction)
+            {
+                case Direction.Left:
+                    if (posX - shift > 0)
+                    {
+                        posX -= shift;
+                    }
+                    break;
+                case Direction.Right:
+                    if (posX + shift < picWidth - carrierWidht)
+                    {
+                        posX += shift;
+                    }
+                    break;
+                case Direction.Up:
+                    if (posY - shift > 0)
+                    {
+                        posY -= shift;
+                    }
+                    break;
+                case Direction.Down:
+                    if (posY + shift < picHeight - carrierHeight)
+                    {
+                        posY += shift;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override void DrawTransport(Graphics g)
         {
-            base.DrawTransport(g);
-            /*//тело
+            //тело
             Brush brushPrimary = new SolidBrush(PrimaryColor);
             List<Point> pointsBody = new List<Point>(12);
             pointsBody.Add(new Point(posX + 1, posY + 13));
@@ -50,16 +77,26 @@ namespace lab1WinForms
 
             brushPrimary.Dispose();
 
-            */
+            /*
             //ВП полоса
             Pen penSecondary = new Pen(SecondaryColor);
             g.DrawLine(penSecondary, new Point(posX + 119, posY + 8), new Point(posX + 27, posY + 30));
             g.DrawLine(penSecondary, new Point(posX + 119, posY + 20), new Point(posX + 40, posY + 38));
             penSecondary.Dispose();
+            */
 
-            if (GunOnBoard)
+            /*if (GunOnBoard)
             {
+                //самолёт
                 Brush b = new SolidBrush(SecondaryColor);
+                //List<Point> pointsAirplane = new List<Point>(4);
+                //pointsAirplane.Add(new Point(posX + 110, posY + 15));
+                //pointsAirplane.Add(new Point(posX + 105, posY + 20));
+                //pointsAirplane.Add(new Point(posX + 112, posY + 20));
+                //pointsAirplane.Add(new Point(posX + 110, posY + 18));
+
+                //g.FillPolygon(b, pointsAirplane.ToArray<Point>());
+
                 //пушка
                 g.FillRectangle(b, posX + 65, posY + 5, 10, 8);
 
@@ -70,9 +107,9 @@ namespace lab1WinForms
 
                 b.Dispose();
                 red.Dispose();
-            }
+            }*/
 
-            if (HelicoptersOnBoard)
+           /* if (HelicoptersOnBoard)
             {
                 //вертолёт
                 //тело
@@ -92,11 +129,13 @@ namespace lab1WinForms
                 g.DrawLine(p, posX + 42, posY + 12, posX + 39, posY + 9);
                 g.DrawLine(p, posX + 42, posY + 12, posX + 45, posY + 9);
                 p.Dispose();
-            }
-
-            Airplanes airplanes = new Airplanes(Count, 
+            } */
+            
+            /*Airplanes airplanes = new Airplanes(Count,
                 PrimaryColor, SecondaryColor, posX, posY);
-            airplanes.DrawAirplanes(g);
+            airplanes.DrawAirplanes(g);*/
+            
         }
     }
 }
+
