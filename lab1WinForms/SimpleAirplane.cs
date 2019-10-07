@@ -7,37 +7,22 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    public class Airplanes
+    class SimpleAirplane : IAirplanes
     {
-        public AirplanesCount Count { private set; get; }
-        public Color PrimaryColor { private set; get; }
-        public Color SecondaryColor { private set; get; }
         public int globalPosX;
         public int globalPosY;
 
-        public Airplanes(AirplanesCount airplanesCount, Color primaryColor, Color secondaryColor,
-            int posX, int posY)
+        public SimpleAirplane(int posX, int posY)
         {
-            PrimaryColor = primaryColor;
-            SecondaryColor = secondaryColor;
-            Count = airplanesCount;
             globalPosX = posX;
             globalPosY = posY;
         }
 
-        public enum AirplanesCount
-        {
-            THREE = 3,
-            FOUR = 4,
-            FIVE = 5,
-            SIX = 6
-        }        
-
-        public void DrawAirplanes(Graphics g)
+        public void DrawAirplanes(AirplanesCount Count, Graphics g, Color color)
         {
             for (int i = 0; i < (int)Count; i++)
             {
-                Brush b = new SolidBrush(SecondaryColor);
+                Brush b = new SolidBrush(color);
                 List<Point> pointsAirplane = new List<Point>(4);
 
                 int shiftX = i * 8;

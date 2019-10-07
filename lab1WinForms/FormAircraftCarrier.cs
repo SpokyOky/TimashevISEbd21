@@ -51,7 +51,9 @@ namespace lab1WinForms
             Color SecondaryColor = Color.White;
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
-            Airplanes.AirplanesCount Count = Airplanes.AirplanesCount.FOUR;
+            AirplanesCount Count = AirplanesCount.SIX;
+            IAirplanes Type;
+            
 
             aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor,
                 SecondaryColor, Count, GunOnBoard, HelicoptersOnBoard);
