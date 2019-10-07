@@ -27,20 +27,15 @@ namespace lab1WinForms
 
         public enum AirplanesCount
         {
-            THREE,
-            FOUR,
-            FIVE,
-            SIX
-        }
-
-        private int CountToInt(AirplanesCount airplanesCount)
-        {
-            return (int)airplanesCount + 3;
-        }
+            THREE = 3,
+            FOUR = 4,
+            FIVE = 5,
+            SIX = 6
+        }        
 
         public void DrawAirplanes(Graphics g)
         {
-            for (int i = 0; i < CountToInt(Count); i++)
+            for (int i = 0; i < (int)Count; i++)
             {
                 Brush b = new SolidBrush(SecondaryColor);
                 List<Point> pointsAirplane = new List<Point>(4);
