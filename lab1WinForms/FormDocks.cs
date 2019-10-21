@@ -41,5 +41,43 @@ namespace lab1WinForms
                 Draw();
             }
         }
+
+        private void btnAddACC_Click(object sender, EventArgs e)
+        {
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == DialogResult.OK)
+                {
+                    var warship = new AircraftCarrier(100, 1000, dialog.Color, 
+                        dialogDop.Color, AirplanesCount.SIX, true, true);
+                    int place = docks + warship;
+                    Draw();
+                }
+            }
+        }
+
+        private void btnTake_Click(object sender, EventArgs e)
+        {
+            if(mtbPlace.Text != "")
+            {
+                var warship = docks - (Convert.ToInt32(mtbPlace.Text) - 1);
+                if(warship != null)
+                {
+                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+                    Graphics gr = Graphics.FromImage(bmp);
+                    warship.SetPosition(5, 5, pictureBox2.Width,pictureBox2.Height);
+                    warship.DrawTransport(gr);
+                    pictureBox2.Image = bmp;
+                }
+                else
+                {
+                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+                    pictureBox2.Image = bmp;
+                }
+                Draw();
+            }
+        }
     }
 }

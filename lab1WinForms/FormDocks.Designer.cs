@@ -65,6 +65,7 @@
             this.btnAddACC.TabIndex = 2;
             this.btnAddACC.Text = "Припарковать ACC";
             this.btnAddACC.UseVisualStyleBackColor = true;
+            this.btnAddACC.Click += new System.EventHandler(this.btnAddACC_Click);
             // 
             // label2
             // 
@@ -91,6 +92,7 @@
             this.btnTake.TabIndex = 6;
             this.btnTake.Text = "Забрать корабль";
             this.btnTake.UseVisualStyleBackColor = true;
+            this.btnTake.Click += new System.EventHandler(this.btnTake_Click);
             // 
             // pictureBox2
             // 
