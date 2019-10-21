@@ -9,16 +9,19 @@ namespace lab1WinForms
 {
     class AircraftCarrier : WarShip
     {
+        public Color SecondaryColor { private set; get; }
+
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
         public AirplanesCount Count { private set; get; }
+        
 
         private int AirplaneType;
         
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, AirplanesCount airplanesCount,
-            bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor, secondaryColor)
+            bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;

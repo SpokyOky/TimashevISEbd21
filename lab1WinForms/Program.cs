@@ -16,7 +16,8 @@ namespace lab1WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAircraftCarrier());
+            //Application.Run(new FormAircraftCarrier());
+            Application.Run(new FormDocks());
         }
     }
 }

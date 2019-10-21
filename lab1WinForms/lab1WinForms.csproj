@@ -47,6 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirplanesCount.cs" />
+    <Compile Include="Docks.cs" />
+    <Compile Include="FormDocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocks.Designer.cs">
+      <DependentUpon>FormDocks.cs</DependentUpon>
+    </Compile>
     <Compile Include="IAirplanes.cs" />
     <Compile Include="SimpleAirplane.cs" />
     <Compile Include="Stealth.cs" />
@@ -66,6 +73,9 @@
     <Compile Include="WarShipBase.cs" />
     <EmbeddedResource Include="FormAircraftCarrier.resx">
       <DependentUpon>FormAircraftCarrier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocks.resx">
+      <DependentUpon>FormDocks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
