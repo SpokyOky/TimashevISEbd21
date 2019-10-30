@@ -12,11 +12,11 @@ namespace lab1WinForms
 {
     public partial class FormDocks : Form
     {
-        Docks<ITransport> docks;
+        Docks<ITransport, IAirplanes> docks;
         public FormDocks()
         {
             InitializeComponent();
-            docks = new Docks<ITransport>(6, pictureBox1.Width,
+            docks = new Docks<ITransport, IAirplanes>(6, pictureBox1.Width,
            pictureBox1.Height);
             Draw();
         }

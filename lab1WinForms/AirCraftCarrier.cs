@@ -16,7 +16,7 @@ namespace lab1WinForms
         public AirplanesCount Count { private set; get; }
         
 
-        private int AirplaneType;
+        private IAirplanes AirplaneType;
         
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
@@ -31,7 +31,11 @@ namespace lab1WinForms
             HelicoptersOnBoard = helicoptersOnBoard;
             Count = airplanesCount;
 
-            AirplaneType = new Random().Next(0, 3);
+        }
+
+        public void SetAirplaneType(IAirplanes airplaneType)
+        {
+            AirplaneType = airplaneType;
         }
 
         public override void DrawTransport(Graphics g)
@@ -80,22 +84,9 @@ namespace lab1WinForms
                 p.Dispose();
             }
 
-            IAirplanes airplanes;
 
-            switch (AirplaneType)
-            {
-                case 0:
-                    airplanes = new Fighter(posX, posY);
-                    break;
-                case 1:
-                    airplanes = new Stealth(posX, posY);
-                    break;
-                default:
-                    airplanes = new SimpleAirplane(posX, posY);
-                    break;
-            }
-
-            airplanes.DrawAirplanes(Count, g, SecondaryColor);
+            AirplaneType = new Fighter(posX, posY);
+            AirplaneType.DrawAirplanes(Count, g, SecondaryColor);
         }
     }
 }

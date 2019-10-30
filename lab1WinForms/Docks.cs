@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class Docks<T> where T : class, ITransport
+    class Docks<T, A> 
+        where T : class, ITransport
+        where A : class, IAirplanes
     {
         private T[] places;
+
         private int PicWidth;
         private int PicHeight;
         private const int placeWidth = 200;
@@ -22,7 +25,18 @@ namespace lab1WinForms
             PicHeight = picHeight;
         }
 
-        public static int operator +(Docks<T> d, T warship)
+        public void SetAirplaneType(A airplaneType)
+        {
+            for (int i = 0; i < places.Length; i++)
+            {
+                if (!CheckFreePlaces(i))
+                {
+                    Console.WriteLine(places[i]);
+                }
+            }    
+        }
+
+        public static int operator +(Docks<T, A> d, T warship)
         {
             for (int i = 0; i < d.places.Length / 2; i++)
             {
@@ -47,7 +61,7 @@ namespace lab1WinForms
             return -1;
         }
 
-        public static T operator -(Docks<T> d, int index)
+        public static T operator -(Docks<T, A> d, int index)
         {
             if (index < 0 || index > d.places.Length)
             {
