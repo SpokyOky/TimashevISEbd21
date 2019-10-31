@@ -12,11 +12,14 @@ namespace lab1WinForms
 {
     public partial class FormDocks : Form
     {
+        private int shiftX = 0;
+        private int shiftY = 0;
+
         Docks<ITransport, IAirplanes> docks;
         public FormDocks()
         {
             InitializeComponent();
-            docks = new Docks<ITransport, IAirplanes>(6, pictureBox1.Width,
+            docks = new Docks<ITransport, IAirplanes>(6, 6, pictureBox1.Width,
            pictureBox1.Height);
             Draw();
         }
@@ -78,6 +81,35 @@ namespace lab1WinForms
                 }
                 Draw();
             }
+        }
+
+        private void btnLanding_Click(object sender, EventArgs e)
+        {
+            int AirplaneType = new Random().Next(3);
+            IAirplanes airplane;
+            switch (AirplaneType)
+            {
+                case 0:
+                    airplane = new Fighter(shiftX, shiftY);
+                    break;
+                case 1:
+                    airplane = new SimpleAirplane(shiftX, shiftY);
+                    break;
+                case 2:
+                    airplane = new Stealth(shiftX, shiftY);
+                    break;
+                default:
+                    airplane = new Stealth(shiftX, shiftY);
+                    break;
+            }
+            docks.AddAirplanes(airplane);
+            shiftX += 100;
+            if (shiftX >= 700)
+            {
+                shiftX = 0;
+                shiftY += 30;
+            }
+            Draw();
         }
     }
 }

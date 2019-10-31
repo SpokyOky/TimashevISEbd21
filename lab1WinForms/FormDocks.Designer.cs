@@ -35,6 +35,7 @@
             this.mtbPlace = new System.Windows.Forms.MaskedTextBox();
             this.btnTake = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnLanding = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -102,11 +103,22 @@
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
+            // btnLanding
+            // 
+            this.btnLanding.Location = new System.Drawing.Point(661, 91);
+            this.btnLanding.Name = "btnLanding";
+            this.btnLanding.Size = new System.Drawing.Size(127, 33);
+            this.btnLanding.TabIndex = 8;
+            this.btnLanding.Text = "Посадить самолёты";
+            this.btnLanding.UseVisualStyleBackColor = true;
+            this.btnLanding.Click += new System.EventHandler(this.btnLanding_Click);
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 322);
+            this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnTake);
             this.Controls.Add(this.mtbPlace);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.MaskedTextBox mtbPlace;
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnLanding;
     }
 }

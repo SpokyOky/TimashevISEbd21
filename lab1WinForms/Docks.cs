@@ -12,28 +12,19 @@ namespace lab1WinForms
         where A : class, IAirplanes
     {
         private T[] places;
+        private A[] airplanes;
 
         private int PicWidth;
         private int PicHeight;
         private const int placeWidth = 200;
         private const int placeHeight = 67;
 
-        public Docks(int sizes, int picWidth, int picHeight)
+        public Docks(int sizes, int countAiplanes, int picWidth, int picHeight)
         {
             places = new T[sizes];
+            airplanes = new A[countAiplanes];
             PicWidth = picWidth;
             PicHeight = picHeight;
-        }
-
-        public void SetAirplaneType(A airplaneType)
-        {
-            for (int i = 0; i < places.Length; i++)
-            {
-                if (!CheckFreePlaces(i))
-                {
-                    Console.WriteLine(places[i]);
-                }
-            }    
         }
 
         public static int operator +(Docks<T, A> d, T warship)
@@ -45,6 +36,7 @@ namespace lab1WinForms
                     d.places[i] = warship;
                     d.places[i].SetPosition(d.PicWidth / 15 + 5 + i * placeWidth,
                         d.PicHeight / 5 + 5, d.PicWidth, d.PicHeight);
+
                     return i;
                 }
             }
@@ -76,6 +68,19 @@ namespace lab1WinForms
             return null;
         }
 
+        public void AddAirplanes(A airplane)
+        {
+            for (int i = 0; i < airplanes.Length; i++)
+            {
+                if (airplanes[i] == null)
+                {
+                    airplanes[i] = airplane;
+                    break;
+                }
+
+            }
+        }
+
         private bool CheckFreePlaces(int index)
         {
             return places[index] == null;
@@ -89,6 +94,14 @@ namespace lab1WinForms
                 if (!CheckFreePlaces(i))
                 {
                     places[i].DrawTransport(g);
+                }
+            }
+
+            for (int i = 0; i < airplanes.Length; i++)
+            {
+                if (airplanes[i] != null)
+                {
+                    airplanes[i].DrawAirplanes(AirplanesCount.THREE, g, Color.White);
                 }
             }
         }
@@ -116,6 +129,7 @@ namespace lab1WinForms
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
+
         }
     }
 }

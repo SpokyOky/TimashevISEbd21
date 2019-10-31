@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab1WinForms
 {
-    class AircraftCarrier : WarShip
+    class AircraftCarrier: WarShip
     {
         public Color SecondaryColor { private set; get; }
 
@@ -16,7 +16,7 @@ namespace lab1WinForms
         public AirplanesCount Count { private set; get; }
         
 
-        private IAirplanes AirplaneType;
+        private int AirplaneType;
         
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
@@ -31,11 +31,7 @@ namespace lab1WinForms
             HelicoptersOnBoard = helicoptersOnBoard;
             Count = airplanesCount;
 
-        }
-
-        public void SetAirplaneType(IAirplanes airplaneType)
-        {
-            AirplaneType = airplaneType;
+            AirplaneType = new Random().Next(3);
         }
 
         public override void DrawTransport(Graphics g)
@@ -84,9 +80,23 @@ namespace lab1WinForms
                 p.Dispose();
             }
 
-
-            AirplaneType = new Fighter(posX, posY);
-            AirplaneType.DrawAirplanes(Count, g, SecondaryColor);
+            IAirplanes airplane;
+            switch (AirplaneType)
+            {
+                case 0:
+                    airplane = new Fighter(posX, posY);
+                    break;
+                case 1:
+                    airplane = new SimpleAirplane(posX, posY);
+                    break;
+                case 2:
+                    airplane = new Stealth(posX, posY);
+                    break;
+                default:
+                    airplane = new Stealth(posX, posY);
+                    break;
+            }
+            airplane.DrawAirplanes(Count, g, SecondaryColor);
         }
     }
 }
