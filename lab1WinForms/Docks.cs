@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class Docks<T, A> 
+    class Docks<T, A>
         where T : class, ITransport
         where A : class, IAirplanes
     {
@@ -66,6 +66,32 @@ namespace lab1WinForms
                 return warship;
             }
             return null;
+        }
+
+        public static bool operator <(Docks<T, A> d, int compareWith)
+        {
+            int freePlaces = 0;
+            for (int i = 0; i < d.places.Length; i++)
+            {
+                if (d.CheckFreePlaces(i))
+                {
+                    freePlaces++;
+                }
+            }
+            return freePlaces < compareWith ? true : false;
+        }
+
+        public static bool operator >(Docks<T, A> d, int compareWith)
+        {
+            int freePlaces = 0;
+            for (int i = 0; i < d.places.Length; i++)
+            {
+                if (d.CheckFreePlaces(i))
+                {
+                    freePlaces++;
+                }
+            }
+            return freePlaces > compareWith ? true : false;
         }
 
         public void AddAirplanes(A airplane)
