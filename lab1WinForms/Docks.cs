@@ -11,7 +11,8 @@ namespace lab1WinForms
         where T : class, ITransport
         where A : class, IAirplanes
     {
-        private T[] places;
+        private Dictionary<int, T> places;
+        private int maxPlaces;
         private A[] airplanes;
 
         private int PicWidth;
@@ -21,7 +22,8 @@ namespace lab1WinForms
 
         public Docks(int sizes, int countAiplanes, int picWidth, int picHeight)
         {
-            places = new T[sizes];
+            maxPlaces = sizes;
+            places = new Dictionary<int, T>();
             airplanes = new A[countAiplanes];
             PicWidth = picWidth;
             PicHeight = picHeight;
@@ -29,23 +31,27 @@ namespace lab1WinForms
 
         public static int operator +(Docks<T, A> d, T warship)
         {
-            for (int i = 0; i < d.places.Length / 2; i++)
+            if(d.places.Count == d.maxPlaces)
+            {
+                return -1;
+            }
+            for (int i = 0; i < d.maxPlaces / 2; i++)
             {
                 if (d.CheckFreePlaces(i))
                 {
-                    d.places[i] = warship;
+                    d.places.Add(i, warship);
                     d.places[i].SetPosition(d.PicWidth / 15 + 5 + i * placeWidth,
                         d.PicHeight / 5 + 5, d.PicWidth, d.PicHeight);
 
                     return i;
                 }
             }
-            for (int i = d.places.Length / 2; i < d.places.Length; i++)
+            for (int i = d.maxPlaces / 2; i < d.maxPlaces; i++)
             {
                 if (d.CheckFreePlaces(i))
                 {
-                    d.places[i] = warship;
-                    d.places[i].SetPosition(d.PicWidth / 15 + 5 + (d.places.Length - 1 - i) * placeWidth,
+                    d.places.Add(i, warship);
+                    d.places[i].SetPosition(d.PicWidth / 15 + 5 + (d.maxPlaces- 1 - i) * placeWidth,
                         d.PicHeight * 4 / 5 - placeHeight + 10, d.PicWidth, d.PicHeight);
                     return i;
                 }
@@ -55,14 +61,14 @@ namespace lab1WinForms
 
         public static T operator -(Docks<T, A> d, int index)
         {
-            if (index < 0 || index > d.places.Length)
+            if (index < 0 || index > d.maxPlaces)
             {
                 return null;
             }
             if (!d.CheckFreePlaces(index))
             {
                 T warship = d.places[index];
-                d.places[index] = null;
+                d.places.Remove(index);
                 return warship;
             }
             return null;
@@ -71,7 +77,7 @@ namespace lab1WinForms
         public static bool operator <(Docks<T, A> d, int compareWith)
         {
             int freePlaces = 0;
-            for (int i = 0; i < d.places.Length; i++)
+            for (int i = 0; i < d.maxPlaces; i++)
             {
                 if (d.CheckFreePlaces(i))
                 {
@@ -84,7 +90,7 @@ namespace lab1WinForms
         public static bool operator >(Docks<T, A> d, int compareWith)
         {
             int freePlaces = 0;
-            for (int i = 0; i < d.places.Length; i++)
+            for (int i = 0; i < d.maxPlaces; i++)
             {
                 if (d.CheckFreePlaces(i))
                 {
@@ -108,13 +114,13 @@ namespace lab1WinForms
 
         private bool CheckFreePlaces(int index)
         {
-            return places[index] == null;
+            return !places.ContainsKey(index);
         }
 
         public void Draw(Graphics g)
         {
             DrawPlaces(g);
-            for (int i = 0; i < places.Length; i++)
+            for (int i = 0; i < maxPlaces; i++)
             {
                 if (!CheckFreePlaces(i))
                 {
@@ -144,12 +150,12 @@ namespace lab1WinForms
             b.Dispose();
 
             Pen p = new Pen(Color.Black, 3);
-            for (int i = 0; i < places.Length / 2; i++)
+            for (int i = 0; i < maxPlaces / 2; i++)
             {
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight / 5 + 20));
             }
-            for (int i = 0; i < places.Length / 2; i++)
+            for (int i = 0; i < maxPlaces; i++)
             {
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
