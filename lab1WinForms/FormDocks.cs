@@ -23,9 +23,7 @@ namespace lab1WinForms
            pictureBox1.Height);
             Draw();
         }
-        /// <summary>
-        /// Метод отрисовки парковки
-        /// </summary>
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -110,6 +108,26 @@ namespace lab1WinForms
                 shiftY += 30;
             }
             Draw();
+        }
+
+        private void btnCompareLess_Click(object sender, EventArgs e)
+        {
+            if (mtbPlace.Text != "")
+            {
+                if (docks < Convert.ToInt32(mtbPlace.Text))
+                {
+                    labelCompareText.Text = "Свободных мест меньше " + mtbPlace.Text;
+                }
+                else if (docks > Convert.ToInt32(mtbPlace.Text))
+                {
+                    labelCompareText.Text = "Свободных мест больше " + mtbPlace.Text;
+                }
+                else
+                {
+                    labelCompareText.Text = "Свободных мест равно " + mtbPlace.Text;
+                }
+
+            }
         }
     }
 }

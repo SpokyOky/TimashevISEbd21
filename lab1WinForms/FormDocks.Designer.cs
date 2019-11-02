@@ -36,6 +36,8 @@
             this.btnTake = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLanding = new System.Windows.Forms.Button();
+            this.btnCompareLess = new System.Windows.Forms.Button();
+            this.labelCompareText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -113,11 +115,31 @@
             this.btnLanding.UseVisualStyleBackColor = true;
             this.btnLanding.Click += new System.EventHandler(this.btnLanding_Click);
             // 
+            // btnCompareLess
+            // 
+            this.btnCompareLess.Location = new System.Drawing.Point(661, 130);
+            this.btnCompareLess.Name = "btnCompareLess";
+            this.btnCompareLess.Size = new System.Drawing.Size(123, 45);
+            this.btnCompareLess.TabIndex = 9;
+            this.btnCompareLess.Text = "Сравнить свободные места";
+            this.btnCompareLess.UseVisualStyleBackColor = true;
+            this.btnCompareLess.Click += new System.EventHandler(this.btnCompareLess_Click);
+            // 
+            // labelCompareText
+            // 
+            this.labelCompareText.AutoSize = true;
+            this.labelCompareText.Location = new System.Drawing.Point(661, 178);
+            this.labelCompareText.Name = "labelCompareText";
+            this.labelCompareText.Size = new System.Drawing.Size(0, 13);
+            this.labelCompareText.TabIndex = 11;
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 322);
+            this.Controls.Add(this.labelCompareText);
+            this.Controls.Add(this.btnCompareLess);
             this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnTake);
@@ -145,5 +167,7 @@
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnLanding;
+        private System.Windows.Forms.Button btnCompareLess;
+        private System.Windows.Forms.Label labelCompareText;
     }
 }
