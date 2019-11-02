@@ -103,7 +103,6 @@ namespace lab1WinForms
                     airplanes[i] = airplane;
                     break;
                 }
-
             }
         }
 

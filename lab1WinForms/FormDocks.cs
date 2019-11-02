@@ -126,7 +126,6 @@ namespace lab1WinForms
                 {
                     labelCompareText.Text = "Свободных мест равно " + mtbPlace.Text;
                 }
-
             }
         }
     }
