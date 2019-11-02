@@ -55,6 +55,7 @@ namespace lab1WinForms
         public void MoveTransport(Direction direction)
         {
             int shift = Convert.ToInt32(MaxSpeed * 100 / Weight);
+
             switch (direction)
             {
                 case Direction.Left:
