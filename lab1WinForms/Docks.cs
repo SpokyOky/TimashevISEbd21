@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class Docks<T, A>
+    public class Docks<T, A>
         where T : class, ITransport
         where A : class, IAirplanes
     {
@@ -120,6 +120,11 @@ namespace lab1WinForms
         public void Draw(Graphics g)
         {
             DrawPlaces(g);
+            foreach(var i in places)
+            {
+                i.Value.DrawTransport(g);
+            }
+
             for (int i = 0; i < maxPlaces; i++)
             {
                 if (!CheckFreePlaces(i))

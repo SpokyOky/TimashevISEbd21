@@ -12,72 +12,89 @@ namespace lab1WinForms
 {
     public partial class FormDocks : Form
     {
-        private int shiftX = 0;
-        private int shiftY = 0;
+        MultiLevelDocks docks;
 
-        Docks<ITransport, IAirplanes> docks;
+        const int countLevel = 5;
+
+        private int[] shiftX = new int[countLevel];
+        private int[] shiftY = new int[countLevel];
+
         public FormDocks()
         {
             InitializeComponent();
-            docks = new Docks<ITransport, IAirplanes>(6, 6, pictureBox1.Width,
-           pictureBox1.Height);
-            Draw();
+            docks = new MultiLevelDocks(countLevel, pictureBoxDocks.Width, pictureBoxDocks.Height);
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevel.Items.Add("Уровень " + (i + 1));
+            }
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            docks.Draw(gr);
-            pictureBox1.Image = bmp;
+            if (listBoxLevel.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxDocks.Width, pictureBoxDocks.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                docks[listBoxLevel.SelectedIndex].Draw(gr);
+                pictureBoxDocks.Image = bmp;
+            }
         }
 
         private void btnAddWS_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevel.SelectedIndex > -1)
             {
-                var warship = new WarShip(100, 1000, dialog.Color);
-                int place = docks + warship;
-                Draw();
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var warship = new WarShip(100, 1000, dialog.Color);
+                    int place = docks[listBoxLevel.SelectedIndex] + warship;
+                    Draw();
+                }
             }
         }
 
         private void btnAddACC_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevel.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var warship = new AircraftCarrier(100, 1000, dialog.Color, 
-                        dialogDop.Color, AirplanesCount.SIX, true, true);
-                    int place = docks + warship;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var warship = new AircraftCarrier(100, 1000, dialog.Color,
+                            dialogDop.Color, AirplanesCount.SIX, true, true);
+                        int place = docks[listBoxLevel.SelectedIndex] + warship;
+                        Draw();
+                    }
                 }
             }
         }
 
         private void btnTake_Click(object sender, EventArgs e)
         {
-            if(mtbPlace.Text != "")
+            if (listBoxLevel.SelectedIndex > -1)
             {
-                var warship = docks - (Convert.ToInt32(mtbPlace.Text) - 1);
-                if(warship != null)
+                if (mtbPlace.Text != "")
                 {
-                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    warship.SetPosition(5, 5, pictureBox2.Width,pictureBox2.Height);
-                    warship.DrawTransport(gr);
-                    pictureBox2.Image = bmp;
+                    var warship = docks[listBoxLevel.SelectedIndex] - (Convert.ToInt32(mtbPlace.Text) - 1);
+                    if (warship != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        warship.SetPosition(5, 5, pictureBox2.Width, pictureBox2.Height);
+                        warship.DrawTransport(gr);
+                        pictureBox2.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+                        pictureBox2.Image = bmp;
+                    }
+                    Draw();
                 }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
-                    pictureBox2.Image = bmp;
-                }
-                Draw();
             }
         }
 
@@ -88,45 +105,57 @@ namespace lab1WinForms
             switch (AirplaneType)
             {
                 case 0:
-                    airplane = new Fighter(shiftX, shiftY);
+                    airplane = new Fighter(shiftX[listBoxLevel.SelectedIndex],
+                        shiftY[listBoxLevel.SelectedIndex]);
                     break;
                 case 1:
-                    airplane = new SimpleAirplane(shiftX, shiftY);
+                    airplane = new SimpleAirplane(shiftX[listBoxLevel.SelectedIndex], 
+                        shiftY[listBoxLevel.SelectedIndex]);
                     break;
                 case 2:
-                    airplane = new Stealth(shiftX, shiftY);
+                    airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex], 
+                        shiftY[listBoxLevel.SelectedIndex]);
                     break;
                 default:
-                    airplane = new Stealth(shiftX, shiftY);
+                    airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
+                        shiftY[listBoxLevel.SelectedIndex]);
                     break;
             }
-            docks.AddAirplanes(airplane);
-            shiftX += 100;
-            if (shiftX >= 700)
+            docks[listBoxLevel.SelectedIndex].AddAirplanes(airplane);
+            shiftX[listBoxLevel.SelectedIndex] += 100;
+            if (shiftX[listBoxLevel.SelectedIndex] >= 700)
             {
-                shiftX = 0;
-                shiftY += 30;
+                shiftX[listBoxLevel.SelectedIndex] = 0;
+                shiftY[listBoxLevel.SelectedIndex] += 30;
             }
             Draw();
         }
 
         private void btnCompareLess_Click(object sender, EventArgs e)
         {
-            if (mtbPlace.Text != "")
+            if (listBoxLevel.SelectedIndex > -1)
             {
-                if (docks < Convert.ToInt32(mtbPlace.Text))
+                if (mtbPlace.Text != "")
                 {
-                    labelCompareText.Text = "Свободных мест меньше " + mtbPlace.Text;
-                }
-                else if (docks > Convert.ToInt32(mtbPlace.Text))
-                {
-                    labelCompareText.Text = "Свободных мест больше " + mtbPlace.Text;
-                }
-                else
-                {
-                    labelCompareText.Text = "Свободных мест равно " + mtbPlace.Text;
+                    if (docks[listBoxLevel.SelectedIndex] < Convert.ToInt32(mtbPlace.Text))
+                    {
+                        labelCompareText.Text = "Свободных мест меньше " + mtbPlace.Text;
+                    }
+                    else if (docks[listBoxLevel.SelectedIndex] > Convert.ToInt32(mtbPlace.Text))
+                    {
+                        labelCompareText.Text = "Свободных мест больше " + mtbPlace.Text;
+                    }
+                    else
+                    {
+                        labelCompareText.Text = "Свободных мест равно " + mtbPlace.Text;
+                    }
                 }
             }
+        }
+
+        private void listBoxLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }

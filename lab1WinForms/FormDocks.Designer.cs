@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDocks = new System.Windows.Forms.PictureBox();
             this.btnAddWS = new System.Windows.Forms.Button();
             this.btnAddACC = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,17 +38,18 @@
             this.btnLanding = new System.Windows.Forms.Button();
             this.btnCompareLess = new System.Windows.Forms.Button();
             this.labelCompareText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.listBoxLevel = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBoxDocks
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(642, 297);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxDocks.Location = new System.Drawing.Point(13, 13);
+            this.pictureBoxDocks.Name = "pictureBoxDocks";
+            this.pictureBoxDocks.Size = new System.Drawing.Size(642, 385);
+            this.pictureBoxDocks.TabIndex = 0;
+            this.pictureBoxDocks.TabStop = false;
             // 
             // btnAddWS
             // 
@@ -119,7 +120,7 @@
             // 
             this.btnCompareLess.Location = new System.Drawing.Point(661, 130);
             this.btnCompareLess.Name = "btnCompareLess";
-            this.btnCompareLess.Size = new System.Drawing.Size(123, 45);
+            this.btnCompareLess.Size = new System.Drawing.Size(127, 45);
             this.btnCompareLess.TabIndex = 9;
             this.btnCompareLess.Text = "Сравнить свободные места";
             this.btnCompareLess.UseVisualStyleBackColor = true;
@@ -133,11 +134,21 @@
             this.labelCompareText.Size = new System.Drawing.Size(0, 13);
             this.labelCompareText.TabIndex = 11;
             // 
+            // listBoxLevel
+            // 
+            this.listBoxLevel.FormattingEnabled = true;
+            this.listBoxLevel.Location = new System.Drawing.Point(664, 316);
+            this.listBoxLevel.Name = "listBoxLevel";
+            this.listBoxLevel.Size = new System.Drawing.Size(107, 82);
+            this.listBoxLevel.TabIndex = 12;
+            this.listBoxLevel.SelectedIndexChanged += new System.EventHandler(this.listBoxLevel_SelectedIndexChanged);
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 322);
+            this.ClientSize = new System.Drawing.Size(805, 410);
+            this.Controls.Add(this.listBoxLevel);
             this.Controls.Add(this.labelCompareText);
             this.Controls.Add(this.btnCompareLess);
             this.Controls.Add(this.btnLanding);
@@ -147,10 +158,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddACC);
             this.Controls.Add(this.btnAddWS);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxDocks);
             this.Name = "FormDocks";
             this.Text = "FormDocks";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,7 +170,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxDocks;
         private System.Windows.Forms.Button btnAddWS;
         private System.Windows.Forms.Button btnAddACC;
         private System.Windows.Forms.Label label2;
@@ -169,5 +180,6 @@
         private System.Windows.Forms.Button btnLanding;
         private System.Windows.Forms.Button btnCompareLess;
         private System.Windows.Forms.Label labelCompareText;
+        private System.Windows.Forms.ListBox listBoxLevel;
     }
 }

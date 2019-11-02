@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class SimpleAirplane : IAirplanes
+    public class SimpleAirplane : IAirplanes
     {
         public int globalPosX;
         public int globalPosY;

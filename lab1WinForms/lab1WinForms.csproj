@@ -55,6 +55,7 @@
       <DependentUpon>FormDocks.cs</DependentUpon>
     </Compile>
     <Compile Include="IAirplanes.cs" />
+    <Compile Include="MultiLevelDocks.cs" />
     <Compile Include="SimpleAirplane.cs" />
     <Compile Include="Stealth.cs" />
     <Compile Include="WarShip.cs" />

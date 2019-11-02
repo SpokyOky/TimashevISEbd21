@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class Stealth : IAirplanes
+    public class Stealth : IAirplanes
     {
         public int globalPosX;
         public int globalPosY;

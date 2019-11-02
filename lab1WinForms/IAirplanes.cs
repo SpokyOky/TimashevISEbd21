@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    interface IAirplanes
+    public interface IAirplanes
     {
         void DrawAirplanes(AirplanesCount airplanesCount, Graphics g, Color color);
     }

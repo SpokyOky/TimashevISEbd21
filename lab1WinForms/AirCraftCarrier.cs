@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab1WinForms
 {
-    class AircraftCarrier: WarShip
+    public class AircraftCarrier: WarShip
     {
         public Color SecondaryColor { private set; get; }
 
