@@ -14,6 +14,7 @@ namespace lab1WinForms
         private Dictionary<int, T> places;
         private int maxPlaces;
         private A[] airplanes;
+        private Queue<T> removedTransport;
 
         private int PicWidth;
         private int PicHeight;
@@ -25,6 +26,7 @@ namespace lab1WinForms
             maxPlaces = sizes;
             places = new Dictionary<int, T>();
             airplanes = new A[countAiplanes];
+            removedTransport = new Queue<T>();
             PicWidth = picWidth;
             PicHeight = picHeight;
         }
@@ -68,6 +70,7 @@ namespace lab1WinForms
             if (!d.CheckFreePlaces(index))
             {
                 T warship = d.places[index];
+                d.removedTransport.Enqueue(warship);
                 d.places.Remove(index);
                 return warship;
             }
@@ -110,6 +113,11 @@ namespace lab1WinForms
                     break;
                 }
             }
+        }
+
+        public T GetTransportByKey(int key)
+        {
+            return places.ContainsKey(key) ? places[key] : null;
         }
 
         private bool CheckFreePlaces(int index)
