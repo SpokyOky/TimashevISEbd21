@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxDocks = new System.Windows.Forms.PictureBox();
-            this.btnAddWS = new System.Windows.Forms.Button();
-            this.btnAddACC = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mtbPlace = new System.Windows.Forms.MaskedTextBox();
             this.btnTake = new System.Windows.Forms.Button();
@@ -39,6 +37,7 @@
             this.btnCompareLess = new System.Windows.Forms.Button();
             this.labelCompareText = new System.Windows.Forms.Label();
             this.listBoxLevel = new System.Windows.Forms.ListBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -50,26 +49,6 @@
             this.pictureBoxDocks.Size = new System.Drawing.Size(642, 385);
             this.pictureBoxDocks.TabIndex = 0;
             this.pictureBoxDocks.TabStop = false;
-            // 
-            // btnAddWS
-            // 
-            this.btnAddWS.Location = new System.Drawing.Point(661, 13);
-            this.btnAddWS.Name = "btnAddWS";
-            this.btnAddWS.Size = new System.Drawing.Size(127, 33);
-            this.btnAddWS.TabIndex = 1;
-            this.btnAddWS.Text = "Припарковать warship";
-            this.btnAddWS.UseVisualStyleBackColor = true;
-            this.btnAddWS.Click += new System.EventHandler(this.btnAddWS_Click);
-            // 
-            // btnAddACC
-            // 
-            this.btnAddACC.Location = new System.Drawing.Point(661, 52);
-            this.btnAddACC.Name = "btnAddACC";
-            this.btnAddACC.Size = new System.Drawing.Size(127, 33);
-            this.btnAddACC.TabIndex = 2;
-            this.btnAddACC.Text = "Припарковать ACC";
-            this.btnAddACC.UseVisualStyleBackColor = true;
-            this.btnAddACC.Click += new System.EventHandler(this.btnAddACC_Click);
             // 
             // label2
             // 
@@ -143,11 +122,22 @@
             this.listBoxLevel.TabIndex = 12;
             this.listBoxLevel.SelectedIndexChanged += new System.EventHandler(this.listBoxLevel_SelectedIndexChanged);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(661, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(127, 73);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Припарковать";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 410);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBoxLevel);
             this.Controls.Add(this.labelCompareText);
             this.Controls.Add(this.btnCompareLess);
@@ -156,8 +146,6 @@
             this.Controls.Add(this.btnTake);
             this.Controls.Add(this.mtbPlace);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnAddACC);
-            this.Controls.Add(this.btnAddWS);
             this.Controls.Add(this.pictureBoxDocks);
             this.Name = "FormDocks";
             this.Text = "FormDocks";
@@ -171,8 +159,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxDocks;
-        private System.Windows.Forms.Button btnAddWS;
-        private System.Windows.Forms.Button btnAddACC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox mtbPlace;
         private System.Windows.Forms.Button btnTake;
@@ -181,5 +167,6 @@
         private System.Windows.Forms.Button btnCompareLess;
         private System.Windows.Forms.Label labelCompareText;
         private System.Windows.Forms.ListBox listBoxLevel;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

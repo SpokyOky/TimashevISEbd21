@@ -6,11 +6,15 @@ using System.Windows.Forms;
 
 namespace lab1WinForms
 {
+    public delegate void warshipDelegate(ITransport warship);
+
     static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        /// 
+
         [STAThread]
         static void Main()
         {

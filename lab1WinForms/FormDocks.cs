@@ -14,6 +14,8 @@ namespace lab1WinForms
     {
         MultiLevelDocks docks;
 
+        FormWarShipConfig form;
+
         const int countLevel = 5;
 
         private int[] shiftX = new int[countLevel];
@@ -152,10 +154,33 @@ namespace lab1WinForms
                 }
             }
         }
+        
 
         private void listBoxLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void AddWarship(ITransport warship)
+        {
+            if(warship != null && listBoxLevel.SelectedIndex > -1)
+            {
+                int place = docks[listBoxLevel.SelectedIndex] + warship;
+                if(place > -1)
+                {                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось поставить корабль");
+                }
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            form = new FormWarShipConfig();
+            form.AddEvent(AddWarship);
+            form.Show();
         }
     }
 }

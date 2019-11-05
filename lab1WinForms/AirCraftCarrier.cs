@@ -32,6 +32,11 @@ namespace lab1WinForms
             AirplaneType = new Random().Next(3);
         }
 
+        public void SetSecondaryColor(Color color)
+        {
+            SecondaryColor = color;
+        }
+
         public override void DrawTransport(Graphics g)
         {
             base.DrawTransport(g);
