@@ -33,17 +33,17 @@
             this.labelAircraftCarrier = new System.Windows.Forms.Label();
             this.labelWarShip = new System.Windows.Forms.Label();
             this.panelPictureBox = new System.Windows.Forms.Panel();
+            this.labelSecondColor = new System.Windows.Forms.Label();
+            this.labelMainColor = new System.Windows.Forms.Label();
             this.groupBoxColors = new System.Windows.Forms.GroupBox();
-            this.labelColorWhite = new System.Windows.Forms.Label();
-            this.labelColorBlack = new System.Windows.Forms.Label();
-            this.labelColorBlue = new System.Windows.Forms.Label();
-            this.labelColorGreen = new System.Windows.Forms.Label();
             this.labelColorPink = new System.Windows.Forms.Label();
             this.labelColorMagenta = new System.Windows.Forms.Label();
             this.labelColorYellow = new System.Windows.Forms.Label();
             this.labelColorCrimson = new System.Windows.Forms.Label();
-            this.labelMainColor = new System.Windows.Forms.Label();
-            this.labelSecondColor = new System.Windows.Forms.Label();
+            this.labelColorBlue = new System.Windows.Forms.Label();
+            this.labelColorGreen = new System.Windows.Forms.Label();
+            this.labelColorBlack = new System.Windows.Forms.Label();
+            this.labelColorWhite = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTransport)).BeginInit();
@@ -106,6 +106,32 @@
             this.panelPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelPictureBox_DragDrop);
             this.panelPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelPictureBox_DragEnter);
             // 
+            // labelSecondColor
+            // 
+            this.labelSecondColor.AllowDrop = true;
+            this.labelSecondColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSecondColor.Location = new System.Drawing.Point(55, 46);
+            this.labelSecondColor.Name = "labelSecondColor";
+            this.labelSecondColor.Size = new System.Drawing.Size(68, 50);
+            this.labelSecondColor.TabIndex = 2;
+            this.labelSecondColor.Text = "Secondary Color";
+            this.labelSecondColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSecondColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelSecondColor_DragDrop);
+            this.labelSecondColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            // 
+            // labelMainColor
+            // 
+            this.labelMainColor.AllowDrop = true;
+            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMainColor.Location = new System.Drawing.Point(3, 46);
+            this.labelMainColor.Name = "labelMainColor";
+            this.labelMainColor.Size = new System.Drawing.Size(46, 50);
+            this.labelMainColor.TabIndex = 1;
+            this.labelMainColor.Text = "Primary Color";
+            this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
+            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            // 
             // groupBoxColors
             // 
             this.groupBoxColors.Controls.Add(this.labelColorPink);
@@ -122,42 +148,6 @@
             this.groupBoxColors.TabIndex = 3;
             this.groupBoxColors.TabStop = false;
             this.groupBoxColors.Text = "Цвета";
-            // 
-            // labelColorWhite
-            // 
-            this.labelColorWhite.BackColor = System.Drawing.Color.White;
-            this.labelColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorWhite.Location = new System.Drawing.Point(6, 16);
-            this.labelColorWhite.Name = "labelColorWhite";
-            this.labelColorWhite.Size = new System.Drawing.Size(30, 30);
-            this.labelColorWhite.TabIndex = 0;
-            // 
-            // labelColorBlack
-            // 
-            this.labelColorBlack.BackColor = System.Drawing.Color.Black;
-            this.labelColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorBlack.Location = new System.Drawing.Point(6, 58);
-            this.labelColorBlack.Name = "labelColorBlack";
-            this.labelColorBlack.Size = new System.Drawing.Size(30, 30);
-            this.labelColorBlack.TabIndex = 1;
-            // 
-            // labelColorBlue
-            // 
-            this.labelColorBlue.BackColor = System.Drawing.Color.Blue;
-            this.labelColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorBlue.Location = new System.Drawing.Point(42, 58);
-            this.labelColorBlue.Name = "labelColorBlue";
-            this.labelColorBlue.Size = new System.Drawing.Size(30, 30);
-            this.labelColorBlue.TabIndex = 3;
-            // 
-            // labelColorGreen
-            // 
-            this.labelColorGreen.BackColor = System.Drawing.Color.Green;
-            this.labelColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorGreen.Location = new System.Drawing.Point(42, 16);
-            this.labelColorGreen.Name = "labelColorGreen";
-            this.labelColorGreen.Size = new System.Drawing.Size(30, 30);
-            this.labelColorGreen.TabIndex = 2;
             // 
             // labelColorPink
             // 
@@ -195,31 +185,41 @@
             this.labelColorCrimson.Size = new System.Drawing.Size(30, 30);
             this.labelColorCrimson.TabIndex = 4;
             // 
-            // labelMainColor
+            // labelColorBlue
             // 
-            this.labelMainColor.AllowDrop = true;
-            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelMainColor.Location = new System.Drawing.Point(3, 46);
-            this.labelMainColor.Name = "labelMainColor";
-            this.labelMainColor.Size = new System.Drawing.Size(46, 50);
-            this.labelMainColor.TabIndex = 1;
-            this.labelMainColor.Text = "Primary Color";
-            this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
-            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            this.labelColorBlue.BackColor = System.Drawing.Color.Blue;
+            this.labelColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorBlue.Location = new System.Drawing.Point(42, 58);
+            this.labelColorBlue.Name = "labelColorBlue";
+            this.labelColorBlue.Size = new System.Drawing.Size(30, 30);
+            this.labelColorBlue.TabIndex = 3;
             // 
-            // labelSecondColor
+            // labelColorGreen
             // 
-            this.labelSecondColor.AllowDrop = true;
-            this.labelSecondColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelSecondColor.Location = new System.Drawing.Point(55, 46);
-            this.labelSecondColor.Name = "labelSecondColor";
-            this.labelSecondColor.Size = new System.Drawing.Size(68, 50);
-            this.labelSecondColor.TabIndex = 2;
-            this.labelSecondColor.Text = "Secondary Color";
-            this.labelSecondColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelSecondColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelSecondColor_DragDrop);
-            this.labelSecondColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            this.labelColorGreen.BackColor = System.Drawing.Color.Green;
+            this.labelColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorGreen.Location = new System.Drawing.Point(42, 16);
+            this.labelColorGreen.Name = "labelColorGreen";
+            this.labelColorGreen.Size = new System.Drawing.Size(30, 30);
+            this.labelColorGreen.TabIndex = 2;
+            // 
+            // labelColorBlack
+            // 
+            this.labelColorBlack.BackColor = System.Drawing.Color.Black;
+            this.labelColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorBlack.Location = new System.Drawing.Point(6, 58);
+            this.labelColorBlack.Name = "labelColorBlack";
+            this.labelColorBlack.Size = new System.Drawing.Size(30, 30);
+            this.labelColorBlack.TabIndex = 1;
+            // 
+            // labelColorWhite
+            // 
+            this.labelColorWhite.BackColor = System.Drawing.Color.White;
+            this.labelColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorWhite.Location = new System.Drawing.Point(6, 16);
+            this.labelColorWhite.Name = "labelColorWhite";
+            this.labelColorWhite.Size = new System.Drawing.Size(30, 30);
+            this.labelColorWhite.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -239,6 +239,7 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormWarShipConfig
             // 

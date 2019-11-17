@@ -7,6 +7,7 @@ using System.Windows.Forms;
 namespace lab1WinForms
 {
     public delegate void warshipDelegate(ITransport warship);
+    public delegate void airplanesDelegate(IAirplanes airplanes);
 
     static class Program
     {

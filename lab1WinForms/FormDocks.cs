@@ -102,35 +102,38 @@ namespace lab1WinForms
 
         private void btnLanding_Click(object sender, EventArgs e)
         {
-            int AirplaneType = new Random().Next(3);
-            IAirplanes airplane;
-            switch (AirplaneType)
+            if (listBoxLevel.SelectedIndex > -1)
             {
-                case 0:
-                    airplane = new Fighter(shiftX[listBoxLevel.SelectedIndex],
-                        shiftY[listBoxLevel.SelectedIndex]);
-                    break;
-                case 1:
-                    airplane = new SimpleAirplane(shiftX[listBoxLevel.SelectedIndex], 
-                        shiftY[listBoxLevel.SelectedIndex]);
-                    break;
-                case 2:
-                    airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex], 
-                        shiftY[listBoxLevel.SelectedIndex]);
-                    break;
-                default:
-                    airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
-                        shiftY[listBoxLevel.SelectedIndex]);
-                    break;
+                int AirplaneType = new Random().Next(3);
+                IAirplanes airplane;
+                switch (AirplaneType)
+                {
+                    case 0:
+                        airplane = new Fighter(shiftX[listBoxLevel.SelectedIndex],
+                            shiftY[listBoxLevel.SelectedIndex]);
+                        break;
+                    case 1:
+                        airplane = new SimpleAirplane(shiftX[listBoxLevel.SelectedIndex],
+                            shiftY[listBoxLevel.SelectedIndex]);
+                        break;
+                    case 2:
+                        airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
+                            shiftY[listBoxLevel.SelectedIndex]);
+                        break;
+                    default:
+                        airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
+                            shiftY[listBoxLevel.SelectedIndex]);
+                        break;
+                }
+                docks[listBoxLevel.SelectedIndex].AddAirplanes(airplane);
+                shiftX[listBoxLevel.SelectedIndex] += 100;
+                if (shiftX[listBoxLevel.SelectedIndex] >= 700)
+                {
+                    shiftX[listBoxLevel.SelectedIndex] = 0;
+                    shiftY[listBoxLevel.SelectedIndex] += 30;
+                }
+                Draw();
             }
-            docks[listBoxLevel.SelectedIndex].AddAirplanes(airplane);
-            shiftX[listBoxLevel.SelectedIndex] += 100;
-            if (shiftX[listBoxLevel.SelectedIndex] >= 700)
-            {
-                shiftX[listBoxLevel.SelectedIndex] = 0;
-                shiftY[listBoxLevel.SelectedIndex] += 30;
-            }
-            Draw();
         }
 
         private void btnCompareLess_Click(object sender, EventArgs e)
@@ -167,7 +170,8 @@ namespace lab1WinForms
             {
                 int place = docks[listBoxLevel.SelectedIndex] + warship;
                 if(place > -1)
-                {                    Draw();
+                {
+                    Draw();
                 }
                 else
                 {

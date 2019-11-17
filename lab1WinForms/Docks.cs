@@ -87,7 +87,7 @@ namespace lab1WinForms
                     freePlaces++;
                 }
             }
-            return freePlaces < compareWith ? true : false;
+            return freePlaces < compareWith;
         }
 
         public static bool operator >(Docks<T, A> d, int compareWith)
@@ -100,7 +100,7 @@ namespace lab1WinForms
                     freePlaces++;
                 }
             }
-            return freePlaces > compareWith ? true : false;
+            return freePlaces > compareWith;
         }
 
         public void AddAirplanes(A airplane)

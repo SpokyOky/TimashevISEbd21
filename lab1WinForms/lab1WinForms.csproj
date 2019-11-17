@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="AirplanesCount.cs" />
     <Compile Include="Docks.cs" />
+    <Compile Include="FormAirplanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAirplanes.Designer.cs">
+      <DependentUpon>FormAirplanes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDocks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="WarShipBase.cs" />
     <EmbeddedResource Include="FormAircraftCarrier.resx">
       <DependentUpon>FormAircraftCarrier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAirplanes.resx">
+      <DependentUpon>FormAirplanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDocks.resx">
       <DependentUpon>FormDocks.cs</DependentUpon>

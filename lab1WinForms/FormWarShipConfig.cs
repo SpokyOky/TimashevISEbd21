@@ -140,5 +140,10 @@ namespace lab1WinForms
             eventAddWarship?.Invoke(warship);
             Close();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
