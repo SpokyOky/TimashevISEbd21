@@ -14,7 +14,6 @@ namespace lab1WinForms
     {
         IAirplanes airplanes = null;
 
-
         private event airplanesDelegate eventAddAirplanes;
 
         public FormAirplanes()
@@ -40,7 +39,24 @@ namespace lab1WinForms
                 DragDropEffects.Move | DragDropEffects.Copy);
         }
 
-        private void pictureBoxAirplanes_DragEnter(object sender, DragEventArgs e)
+        private void panelPictureBoxAirplanes_DragDrop(object sender, DragEventArgs e)
+        {
+            switch (e.Data.GetData(DataFormats.Text).ToString())
+            {
+                case "SimpleAirplane":
+                    airplanes = new SimpleAirplane(-60, -10);
+                    break;
+                case "Fighter":
+                    airplanes = new Fighter(-60, -10);
+                    break;
+                case "Stealth":
+                    airplanes = new Stealth(-60, -10);
+                    break;
+            }
+            DrawTransport();
+        }
+
+        private void panelPictureBoxAirplanes_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
             {
@@ -50,24 +66,6 @@ namespace lab1WinForms
             {
                 e.Effect = DragDropEffects.None;
             }
-        }
-
-        private void pictureBoxAirplanes_DragDrop(object sender, DragEventArgs e)
-        {
-            
-            switch (e.Data.GetData(DataFormats.Text).ToString())
-            {
-                case "SimpleAirplane":
-                    airplanes = new SimpleAirplane(0, 0);
-                    break;
-                case "Fighter":
-                    airplanes = new Fighter(0, 0);
-                    break;
-                case "Stealth":
-                    airplanes = new Fighter(0, 0);
-                    break;
-            }
-            DrawTransport();
         }
 
         public void DrawTransport()
@@ -91,5 +89,19 @@ namespace lab1WinForms
         {
             Close();
         }
+
+        public void AddEvent(airplanesDelegate e)
+        {
+            if (eventAddAirplanes == null)
+            {
+                eventAddAirplanes = new airplanesDelegate(e);
+            }
+            else
+            {
+                eventAddAirplanes += e;
+            }
+        }
+
+        
     }
 }

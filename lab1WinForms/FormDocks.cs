@@ -14,7 +14,8 @@ namespace lab1WinForms
     {
         MultiLevelDocks docks;
 
-        FormWarShipConfig form;
+        FormWarShipConfig formWS;
+        FormAirplanes formA;
 
         const int countLevel = 5;
 
@@ -100,40 +101,45 @@ namespace lab1WinForms
             }
         }
 
-        private void btnLanding_Click(object sender, EventArgs e)
+        private void AddAirplanes(IAirplanes airplane)
         {
             if (listBoxLevel.SelectedIndex > -1)
             {
-                int AirplaneType = new Random().Next(3);
-                IAirplanes airplane;
-                switch (AirplaneType)
+                if (airplane != null)
                 {
-                    case 0:
+                    if (airplane is Fighter)
+                    {
                         airplane = new Fighter(shiftX[listBoxLevel.SelectedIndex],
                             shiftY[listBoxLevel.SelectedIndex]);
-                        break;
-                    case 1:
+                    }
+                    else if (airplane is SimpleAirplane)
+                    {
                         airplane = new SimpleAirplane(shiftX[listBoxLevel.SelectedIndex],
                             shiftY[listBoxLevel.SelectedIndex]);
-                        break;
-                    case 2:
+                    }
+                    else if (airplane is Stealth)
+                    {
                         airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
                             shiftY[listBoxLevel.SelectedIndex]);
-                        break;
-                    default:
-                        airplane = new Stealth(shiftX[listBoxLevel.SelectedIndex],
-                            shiftY[listBoxLevel.SelectedIndex]);
-                        break;
+                    }
+
+                    docks[listBoxLevel.SelectedIndex].AddAirplanes(airplane);
+                    shiftX[listBoxLevel.SelectedIndex] += 100;
+                    if (shiftX[listBoxLevel.SelectedIndex] >= 700)
+                    {
+                        shiftX[listBoxLevel.SelectedIndex] = 0;
+                        shiftY[listBoxLevel.SelectedIndex] += 30;
+                    }
+                    Draw();
                 }
-                docks[listBoxLevel.SelectedIndex].AddAirplanes(airplane);
-                shiftX[listBoxLevel.SelectedIndex] += 100;
-                if (shiftX[listBoxLevel.SelectedIndex] >= 700)
-                {
-                    shiftX[listBoxLevel.SelectedIndex] = 0;
-                    shiftY[listBoxLevel.SelectedIndex] += 30;
-                }
-                Draw();
             }
+        }
+
+        private void btnLanding_Click(object sender, EventArgs e)
+        {
+            formA = new FormAirplanes();
+            formA.AddEvent(AddAirplanes);
+            formA.Show();
         }
 
         private void btnCompareLess_Click(object sender, EventArgs e)
@@ -182,9 +188,9 @@ namespace lab1WinForms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            form = new FormWarShipConfig();
-            form.AddEvent(AddWarship);
-            form.Show();
+            formWS = new FormWarShipConfig();
+            formWS.AddEvent(AddWarship);
+            formWS.Show();
         }
     }
 }

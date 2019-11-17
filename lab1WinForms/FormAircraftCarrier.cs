@@ -51,7 +51,6 @@ namespace lab1WinForms
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
             AirplanesCount Count = AirplanesCount.SIX;
-            IAirplanes Type;
             
 
             aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor,

@@ -34,7 +34,9 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBoxAirplanes = new System.Windows.Forms.PictureBox();
+            this.panelPictureBox = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAirplanes)).BeginInit();
+            this.panelPictureBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSimpleAirplane
@@ -78,6 +80,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -91,20 +94,31 @@
             // 
             // pictureBoxAirplanes
             // 
-            this.pictureBoxAirplanes.Location = new System.Drawing.Point(224, 35);
+            this.pictureBoxAirplanes.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxAirplanes.Location = new System.Drawing.Point(-1, -1);
             this.pictureBoxAirplanes.Name = "pictureBoxAirplanes";
             this.pictureBoxAirplanes.Size = new System.Drawing.Size(100, 23);
             this.pictureBoxAirplanes.TabIndex = 7;
             this.pictureBoxAirplanes.TabStop = false;
-            this.pictureBoxAirplanes.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxAirplanes_DragDrop);
-            this.pictureBoxAirplanes.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxAirplanes_DragEnter);
+            // 
+            // panelPictureBox
+            // 
+            this.panelPictureBox.AllowDrop = true;
+            this.panelPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPictureBox.Controls.Add(this.pictureBoxAirplanes);
+            this.panelPictureBox.Location = new System.Drawing.Point(224, 35);
+            this.panelPictureBox.Name = "panelPictureBox";
+            this.panelPictureBox.Size = new System.Drawing.Size(100, 23);
+            this.panelPictureBox.TabIndex = 8;
+            this.panelPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelPictureBoxAirplanes_DragDrop);
+            this.panelPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelPictureBoxAirplanes_DragEnter);
             // 
             // FormAirplanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 69);
-            this.Controls.Add(this.pictureBoxAirplanes);
+            this.ClientSize = new System.Drawing.Size(338, 70);
+            this.Controls.Add(this.panelPictureBox);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblStealth);
@@ -113,6 +127,7 @@
             this.Name = "FormAirplanes";
             this.Text = "FormAirplanes";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAirplanes)).EndInit();
+            this.panelPictureBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,5 +140,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBoxAirplanes;
+        private System.Windows.Forms.Panel panelPictureBox;
     }
 }
