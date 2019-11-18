@@ -29,7 +29,7 @@ namespace lab1WinForms
             HelicoptersOnBoard = helicoptersOnBoard;
             Count = airplanesCount;
 
-            AirplaneType = new Random().Next(3);
+            AirplaneType = 0;
         }
 
         public void SetSecondaryColor(Color color)
@@ -100,6 +100,11 @@ namespace lab1WinForms
                     break;
             }
             airplane.DrawAirplanes(Count, g, SecondaryColor);
+        }
+
+        public void SetAirplaneType(int type)
+        {
+            AirplaneType = type;
         }
     }
 }
