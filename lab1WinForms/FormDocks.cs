@@ -225,8 +225,9 @@ namespace lab1WinForms
                     MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
+                Draw();
             }
-            Draw();
+            
         }
     }
 }
