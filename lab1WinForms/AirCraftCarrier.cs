@@ -32,6 +32,22 @@ namespace lab1WinForms
             AirplaneType = 0;
         }
 
+        public AircraftCarrier(string info) : base(info)
+        {
+            var strs = info.Split(';');
+            if(strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                PrimaryColor = Color.FromName(strs[2]);
+                SecondaryColor = Color.FromName(strs[3]);
+                Count = (AirplanesCount) Convert.ToInt32(strs[4]);
+                GunOnBoard = Convert.ToBoolean(strs[5]);
+                HelicoptersOnBoard = Convert.ToBoolean(strs[6]);
+                AirplaneType = Convert.ToInt32(strs[7]);
+            }
+        }
+
         public void SetSecondaryColor(Color color)
         {
             SecondaryColor = color;
@@ -105,6 +121,13 @@ namespace lab1WinForms
         public void SetAirplaneType(int type)
         {
             AirplaneType = type;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + SecondaryColor.Name + ";" +
+                (int)Count + ";" + GunOnBoard + ";" + HelicoptersOnBoard + ";"
+                + AirplaneType;
         }
     }
 }

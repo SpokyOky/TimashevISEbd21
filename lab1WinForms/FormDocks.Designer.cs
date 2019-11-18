@@ -38,13 +38,20 @@
             this.listBoxLevel = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnLanding = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxDocks
             // 
-            this.pictureBoxDocks.Location = new System.Drawing.Point(13, 13);
+            this.pictureBoxDocks.Location = new System.Drawing.Point(12, 35);
             this.pictureBoxDocks.Name = "pictureBoxDocks";
             this.pictureBoxDocks.Size = new System.Drawing.Size(642, 385);
             this.pictureBoxDocks.TabIndex = 0;
@@ -53,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(661, 212);
+            this.label2.Location = new System.Drawing.Point(660, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 4;
@@ -61,7 +68,7 @@
             // 
             // mtbPlace
             // 
-            this.mtbPlace.Location = new System.Drawing.Point(706, 205);
+            this.mtbPlace.Location = new System.Drawing.Point(705, 227);
             this.mtbPlace.Mask = "0";
             this.mtbPlace.Name = "mtbPlace";
             this.mtbPlace.Size = new System.Drawing.Size(13, 20);
@@ -69,7 +76,7 @@
             // 
             // btnTake
             // 
-            this.btnTake.Location = new System.Drawing.Point(661, 231);
+            this.btnTake.Location = new System.Drawing.Point(660, 253);
             this.btnTake.Name = "btnTake";
             this.btnTake.Size = new System.Drawing.Size(127, 33);
             this.btnTake.TabIndex = 6;
@@ -79,7 +86,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(664, 270);
+            this.pictureBox2.Location = new System.Drawing.Point(663, 292);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(120, 40);
             this.pictureBox2.TabIndex = 7;
@@ -87,7 +94,7 @@
             // 
             // btnCompareLess
             // 
-            this.btnCompareLess.Location = new System.Drawing.Point(661, 130);
+            this.btnCompareLess.Location = new System.Drawing.Point(660, 152);
             this.btnCompareLess.Name = "btnCompareLess";
             this.btnCompareLess.Size = new System.Drawing.Size(127, 45);
             this.btnCompareLess.TabIndex = 9;
@@ -98,7 +105,7 @@
             // labelCompareText
             // 
             this.labelCompareText.AutoSize = true;
-            this.labelCompareText.Location = new System.Drawing.Point(661, 178);
+            this.labelCompareText.Location = new System.Drawing.Point(660, 200);
             this.labelCompareText.Name = "labelCompareText";
             this.labelCompareText.Size = new System.Drawing.Size(0, 13);
             this.labelCompareText.TabIndex = 11;
@@ -106,7 +113,7 @@
             // listBoxLevel
             // 
             this.listBoxLevel.FormattingEnabled = true;
-            this.listBoxLevel.Location = new System.Drawing.Point(664, 316);
+            this.listBoxLevel.Location = new System.Drawing.Point(663, 338);
             this.listBoxLevel.Name = "listBoxLevel";
             this.listBoxLevel.Size = new System.Drawing.Size(107, 82);
             this.listBoxLevel.TabIndex = 12;
@@ -114,7 +121,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(661, 12);
+            this.btnAdd.Location = new System.Drawing.Point(660, 34);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 73);
             this.btnAdd.TabIndex = 13;
@@ -124,7 +131,7 @@
             // 
             // btnLanding
             // 
-            this.btnLanding.Location = new System.Drawing.Point(661, 91);
+            this.btnLanding.Location = new System.Drawing.Point(660, 113);
             this.btnLanding.Name = "btnLanding";
             this.btnLanding.Size = new System.Drawing.Size(127, 33);
             this.btnLanding.TabIndex = 8;
@@ -132,11 +139,53 @@
             this.btnLanding.UseVisualStyleBackColor = true;
             this.btnLanding.Click += new System.EventHandler(this.btnLanding_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(805, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem,
+            this.загрузитьToolStripMenuItem});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "txt file | *.txt";
+            this.openFileDialog.RestoreDirectory = true;
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "txt file | *.txt";
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 410);
+            this.ClientSize = new System.Drawing.Size(805, 432);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBoxLevel);
             this.Controls.Add(this.labelCompareText);
@@ -147,10 +196,14 @@
             this.Controls.Add(this.mtbPlace);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBoxDocks);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormDocks";
             this.Text = "FormDocks";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +221,11 @@
         private System.Windows.Forms.ListBox listBoxLevel;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnLanding;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

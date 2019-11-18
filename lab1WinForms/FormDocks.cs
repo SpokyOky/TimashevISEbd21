@@ -163,7 +163,7 @@ namespace lab1WinForms
                 }
             }
         }
-        
+
 
         private void listBoxLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,10 +172,10 @@ namespace lab1WinForms
 
         private void AddWarship(ITransport warship)
         {
-            if(warship != null && listBoxLevel.SelectedIndex > -1)
+            if (warship != null && listBoxLevel.SelectedIndex > -1)
             {
                 int place = docks[listBoxLevel.SelectedIndex] + warship;
-                if(place > -1)
+                if (place > -1)
                 {
                     Draw();
                 }
@@ -191,6 +191,42 @@ namespace lab1WinForms
             formWS = new FormWarShipConfig();
             formWS.AddEvent(AddWarship);
             formWS.Show();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (docks.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (docks.LoadData(openFileDialog.FileName))
+                {
+
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+    MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
+            Draw();
         }
     }
 }

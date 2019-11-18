@@ -1,0 +1,8 @@
+CountLevels:5
+Level
+0:AircraftCarrier:100;500;Black;White;5;True;True;1
+1:AircraftCarrier:100;500;Black;Green;5;True;True;2
+Level
+Level
+Level
+Level

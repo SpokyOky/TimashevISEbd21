@@ -175,5 +175,26 @@ namespace lab1WinForms
             }
 
         }
+
+        public T this[int ind]
+        {
+            get
+            {
+                if (places.ContainsKey(ind))
+                {
+                    return places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlaces(ind))
+                {
+                    places.Add(ind, value);
+                    places[ind].SetPosition(PicWidth / 15 + 5 + (maxPlaces - 1 - ind) * placeWidth,
+                        PicHeight * 4 / 5 - placeHeight + 10, PicWidth, PicHeight);
+                }
+            }
+        }
     }
 }
