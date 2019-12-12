@@ -41,9 +41,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьВсёToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьЛевелToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьВсёToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьЛевелToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveLevelFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openLevelFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -160,17 +166,49 @@
             // 
             // сохранитьToolStripMenuItem
             // 
+            this.сохранитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьВсёToolStripMenuItem,
+            this.сохранитьЛевелToolStripMenuItem});
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // сохранитьВсёToolStripMenuItem
+            // 
+            this.сохранитьВсёToolStripMenuItem.Name = "сохранитьВсёToolStripMenuItem";
+            this.сохранитьВсёToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьВсёToolStripMenuItem.Text = "Сохранить всё";
+            this.сохранитьВсёToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВсёToolStripMenuItem_Click);
+            // 
+            // сохранитьЛевелToolStripMenuItem
+            // 
+            this.сохранитьЛевелToolStripMenuItem.Name = "сохранитьЛевелToolStripMenuItem";
+            this.сохранитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьЛевелToolStripMenuItem.Text = "Сохранить левел";
+            this.сохранитьЛевелToolStripMenuItem.Click += new System.EventHandler(this.сохранитьЛевелToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
+            this.загрузитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьВсёToolStripMenuItem,
+            this.загрузитьЛевелToolStripMenuItem});
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
-            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // загрузитьВсёToolStripMenuItem
+            // 
+            this.загрузитьВсёToolStripMenuItem.Name = "загрузитьВсёToolStripMenuItem";
+            this.загрузитьВсёToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.загрузитьВсёToolStripMenuItem.Text = "Загрузить всё";
+            this.загрузитьВсёToolStripMenuItem.Click += new System.EventHandler(this.загрузитьВсёToolStripMenuItem_Click);
+            // 
+            // загрузитьЛевелToolStripMenuItem
+            // 
+            this.загрузитьЛевелToolStripMenuItem.Name = "загрузитьЛевелToolStripMenuItem";
+            this.загрузитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьЛевелToolStripMenuItem.Text = "Загрузить левел";
+            this.загрузитьЛевелToolStripMenuItem.Click += new System.EventHandler(this.загрузитьЛевелToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -180,6 +218,10 @@
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "txt file | *.txt";
+            // 
+            // openLevelFileDialog
+            // 
+            this.openLevelFileDialog.FileName = "openFileDialog1";
             // 
             // FormDocks
             // 
@@ -227,5 +269,11 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьВсёToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьЛевелToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьВсёToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьЛевелToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveLevelFileDialog;
+        private System.Windows.Forms.OpenFileDialog openLevelFileDialog;
     }
 }

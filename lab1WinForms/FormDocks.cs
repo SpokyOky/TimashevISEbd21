@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -193,7 +194,87 @@ namespace lab1WinForms
             formWS.Show();
         }
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private bool SaveLevelData(string filename)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine("Level");
+
+                for (int i = 0; i < docks.countPlaces; i++)
+                {
+                    var warship = docks[listBoxLevel.SelectedIndex][i];
+                    if (warship != null)
+                    {
+                        if (warship.GetType().Name == "WarShip")
+                        {
+                            sw.Write(i + ":WarShip:");
+                        }
+                        if (warship.GetType().Name == "AircraftCarrier")
+                        {
+                            sw.Write(i + ":AircraftCarrier:");
+                        }
+                        sw.WriteLine(warship);
+                    }
+                }
+
+                sw.WriteLine("Level");
+            }
+            return true;
+        }
+
+        private bool LoadLevelData(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                var strs = sr.ReadLine();
+                if (strs.Contains("Level"))
+                {
+                    int counter = -1;
+                    ITransport warship = null;
+                    while (counter < 1)
+                    {
+                        strs = sr.ReadLine();
+                        if (strs == "Level")
+                        {
+                            counter++;
+                            continue;
+                        }
+
+                        if (string.IsNullOrEmpty(strs))
+                        {
+                            break;
+                        }
+
+                        if (strs.Split(':')[1] == "WarShip")
+                        {
+                            warship = new WarShip(strs.Split(':')[2]);
+                        }
+                        else if (strs.Split(':')[1] == "AircraftCarrier")
+                        {
+                            warship = new AircraftCarrier(strs.Split(':')[2]);
+                        }
+                        docks[listBoxLevel.SelectedIndex][Convert.ToInt32(strs.Split(':')[0])] = warship;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void сохранитьВсёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -210,7 +291,7 @@ namespace lab1WinForms
             }
         }
 
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void загрузитьВсёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -227,7 +308,42 @@ namespace lab1WinForms
                 }
                 Draw();
             }
-            
+        }
+
+        private void сохранитьЛевелToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveLevelFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (SaveLevelData(saveLevelFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение левела прошло успешно", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьЛевелToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openLevelFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (LoadLevelData(openLevelFileDialog.FileName))
+                {
+
+                    MessageBox.Show("Загрузка левела прошла успешно", "Результат", MessageBoxButtons.OK,
+    MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузилось", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
+            }
         }
     }
 }

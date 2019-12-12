@@ -10,7 +10,7 @@ namespace lab1WinForms
     public class MultiLevelDocks
     {
         List<Docks<ITransport, IAirplanes>> docksStages;
-        private int countPlaces = 6;
+        public int countPlaces = 6;
 
         private int pictureWidth;
         private int pictureHeight;
@@ -86,6 +86,8 @@ namespace lab1WinForms
             return true;
         }
 
+        
+
         public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
@@ -140,5 +142,7 @@ namespace lab1WinForms
             }
             return true;
         }
+
+        
     }
 }
