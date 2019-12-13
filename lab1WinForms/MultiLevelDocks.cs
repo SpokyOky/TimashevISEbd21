@@ -144,7 +144,5 @@ namespace lab1WinForms
                 }
             }
         }
-
-        
     }
 }
