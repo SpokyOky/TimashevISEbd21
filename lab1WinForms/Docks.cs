@@ -15,6 +15,7 @@ namespace lab1WinForms
         private int maxPlaces;
         private A[] airplanes;
         private Queue<T> removedTransport;
+        
 
         private int PicWidth;
         private int PicHeight;
@@ -70,6 +71,7 @@ namespace lab1WinForms
                 d.places.Remove(index);
                 return warship;
             }
+
             throw new DocksNotFoundException(index);
         }
 

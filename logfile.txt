@@ -1,0 +1,22 @@
+2019-12-13 14:39:37.9855|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 0
+2019-12-13 14:39:39.8126|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 1
+2019-12-13 14:39:41.9027|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 2
+2019-12-13 14:39:45.6109|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black;White;5;True;True;0 на место 3
+2019-12-13 14:39:48.8421|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black;White;5;True;True;0 на место 4
+2019-12-13 14:39:50.9982|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 5
+2019-12-13 14:58:31.3093|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 0
+2019-12-13 14:58:34.0425|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 1
+2019-12-13 14:58:36.4796|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 2
+2019-12-13 14:58:38.2637|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 3
+2019-12-13 14:58:41.3929|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 4
+2019-12-13 14:58:43.6890|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 5
+2019-12-13 14:58:47.6912|ERROR|lab1WinForms.FormDocks|Переполнение на уровне 0
+2019-12-13 14:58:53.4506|ERROR|lab1WinForms.FormDocks|Корабль на месте 1 не найден
+2019-12-13 15:00:47.1801|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Green на место 0
+2019-12-13 15:00:52.7214|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black;White;5;True;True;0 на место 1
+2019-12-13 15:00:55.1315|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black на место 2
+2019-12-13 15:00:58.7217|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black;White;5;True;True;0 на место 3
+2019-12-13 15:01:01.4539|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Black;White;5;True;True;0 на место 4
+2019-12-13 15:01:11.0814|INFO|lab1WinForms.FormDocks|Добавлен корабль 100;500;Blue на место 5
+2019-12-13 15:01:20.0760|ERROR|lab1WinForms.FormDocks|Переполнение на уровне 0
+2019-12-13 15:01:25.6993|ERROR|lab1WinForms.FormDocks|Корабль на месте 1 не найден

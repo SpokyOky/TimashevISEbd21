@@ -9,6 +9,6 @@ namespace lab1WinForms
     class DocksOccupiedPlaceException : Exception
     {
         public DocksOccupiedPlaceException(int i) : 
-            base("На месте " + i + "уже стоит корабль") { }
+            base("На месте " + (i + 1) + "уже стоит корабль") { }
     }
 }

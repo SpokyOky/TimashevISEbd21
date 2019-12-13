@@ -1,0 +1,4 @@
+2019-12-13 14:58:47.6912|ERROR|lab1WinForms.FormDocks|Переполнение на уровне 0
+2019-12-13 14:58:53.4506|ERROR|lab1WinForms.FormDocks|Корабль на месте 1 не найден
+2019-12-13 15:01:20.0760|ERROR|lab1WinForms.FormDocks|Переполнение на уровне 0
+2019-12-13 15:01:25.6993|ERROR|lab1WinForms.FormDocks|Корабль на месте 1 не найден
