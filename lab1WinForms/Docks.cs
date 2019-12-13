@@ -35,7 +35,7 @@ namespace lab1WinForms
         {
             if(d.places.Count == d.maxPlaces)
             {
-                return -1;
+                throw new DocksOverflowException();
             }
             for (int i = 0; i < d.maxPlaces / 2; i++)
             {
@@ -63,10 +63,6 @@ namespace lab1WinForms
 
         public static T operator -(Docks<T, A> d, int index)
         {
-            if (index < 0 || index > d.maxPlaces)
-            {
-                return null;
-            }
             if (!d.CheckFreePlaces(index))
             {
                 T warship = d.places[index];
@@ -74,7 +70,7 @@ namespace lab1WinForms
                 d.places.Remove(index);
                 return warship;
             }
-            return null;
+            throw new DocksNotFoundException(index);
         }
 
         public static bool operator <(Docks<T, A> d, int compareWith)
@@ -184,7 +180,7 @@ namespace lab1WinForms
                 {
                     return places[ind];
                 }
-                return null;
+                throw new DocksNotFoundException(ind);
             }
             set
             {
@@ -193,6 +189,10 @@ namespace lab1WinForms
                     places.Add(ind, value);
                     places[ind].SetPosition(PicWidth / 15 + 5 + ind * placeWidth,
                         PicHeight / 5 + 5, PicWidth, PicHeight);
+                }
+                else
+                {
+                    throw new DocksOccupiedPlaceException(ind);
                 }
             }
         }
