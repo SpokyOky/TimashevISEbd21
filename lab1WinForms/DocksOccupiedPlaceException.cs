@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class DocksOccupiedPlaceException : Exception
+    class DocksOccupiedPlaceException : ApplicationException
     {
         public DocksOccupiedPlaceException(int i) : 
             base("На месте " + (i + 1) + "уже стоит корабль") { }

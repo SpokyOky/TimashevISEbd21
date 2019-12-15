@@ -1,4 +1,8 @@
 Level
 0:WarShip:100;500;Black
-1:AircraftCarrier:100;500;Blue;White;5;True;True;0
+1:AircraftCarrier:100;500;Black;White;5;True;True;0
+2:AircraftCarrier:100;500;Black;White;5;True;True;0
+3:WarShip:100;500;Black
+4:AircraftCarrier:100;500;Black;White;5;True;True;0
+5:WarShip:100;500;Black
 Level

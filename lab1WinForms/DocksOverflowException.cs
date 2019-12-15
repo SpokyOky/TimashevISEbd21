@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class DocksOverflowException : Exception
+    class DocksOverflowException : OverflowException
     {
         public DocksOverflowException() :
             base("В доках нет свободных мест") { }

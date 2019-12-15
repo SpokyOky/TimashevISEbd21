@@ -182,7 +182,7 @@ namespace lab1WinForms
                 {
                     return places[ind];
                 }
-                throw new DocksNotFoundException(ind);
+                return null;
             }
             set
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class DocksNotFoundException : Exception
+    class DocksNotFoundException : NullReferenceException
     {
         public DocksNotFoundException(int i) : 
             base("Не найден корабль по месту " + (i + 1)) { }
