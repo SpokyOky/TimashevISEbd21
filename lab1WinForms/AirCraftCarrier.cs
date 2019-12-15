@@ -29,28 +29,7 @@ namespace lab1WinForms
         public override void DrawTransport(Graphics g)
         {
             base.DrawTransport(g);
-            /*//тело
-            Brush brushPrimary = new SolidBrush(PrimaryColor);
-            List<Point> pointsBody = new List<Point>(12);
-            pointsBody.Add(new Point(posX + 1, posY + 13));
-            pointsBody.Add(new Point(posX + 20, posY + 10));
-            pointsBody.Add(new Point(posX + 30, posY + 5));
-            pointsBody.Add(new Point(posX + 96, posY + 5));
-            pointsBody.Add(new Point(posX + 119, posY + 8));
-            pointsBody.Add(new Point(posX + 119, posY + 30));
 
-            pointsBody.Add(new Point(posX + 94, posY + 32));
-            pointsBody.Add(new Point(posX + 90, posY + 36));
-            pointsBody.Add(new Point(posX + 55, posY + 36));
-            pointsBody.Add(new Point(posX + 40, posY + 39));
-            pointsBody.Add(new Point(posX + 27, posY + 30));
-            pointsBody.Add(new Point(posX + 3, posY + 27));
-
-            g.FillPolygon(brushPrimary, pointsBody.ToArray<Point>());
-
-            brushPrimary.Dispose();
-
-            */
             //ВП полоса
             Pen penSecondary = new Pen(SecondaryColor);
             g.DrawLine(penSecondary, new Point(posX + 119, posY + 8), new Point(posX + 27, posY + 30));
