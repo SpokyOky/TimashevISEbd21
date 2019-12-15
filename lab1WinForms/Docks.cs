@@ -125,14 +125,6 @@ namespace lab1WinForms
                 i.Value.DrawTransport(g);
             }
 
-            for (int i = 0; i < maxPlaces; i++)
-            {
-                if (!CheckFreePlaces(i))
-                {
-                    places[i].DrawTransport(g);
-                }
-            }
-
             for (int i = 0; i < airplanes.Length; i++)
             {
                 if (airplanes[i] != null)
