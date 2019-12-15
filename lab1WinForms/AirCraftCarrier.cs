@@ -87,7 +87,6 @@ namespace lab1WinForms
             }
         }
 
-
         public void DrawCarrier(Graphics g)
         {
             //тело
