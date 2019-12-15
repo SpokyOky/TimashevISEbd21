@@ -182,6 +182,7 @@ namespace lab1WinForms
             {
                 if (CheckFreePlaces(ind))
                 {
+                    places.Add(ind, value);
                     if (ind < 3)
                     {
                         places[ind].SetPosition(PicWidth / 15 + 5 + ind * placeWidth,
