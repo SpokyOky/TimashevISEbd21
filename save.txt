@@ -1,0 +1,11 @@
+CountLevels:5
+Level
+0:AircraftCarrier:100;500;Green;White;5;True;True;0
+1:WarShip:100;500;Black
+2:AircraftCarrier:100;500;Black;White;5;True;True;0
+3:AircraftCarrier:100;500;White;Green;5;True;True;0
+4:AircraftCarrier:100;500;Blue;Yellow;5;True;True;0
+Level
+Level
+Level
+Level

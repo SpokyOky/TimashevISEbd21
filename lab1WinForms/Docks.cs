@@ -165,7 +165,6 @@ namespace lab1WinForms
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
-
         }
 
         public T this[int ind]
