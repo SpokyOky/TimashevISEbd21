@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AircraftCarrier.cs" />
-    <Compile Include="Airplanes.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormAircraftCarrier.cs">
       <SubType>Form</SubType>

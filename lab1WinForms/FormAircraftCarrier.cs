@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace lab1WinForms
 {
-    public class FormAircraftCarrier : Form
+    public partial class FormAircraftCarrier : Form
     {
         private AircraftCarrier aircraftCarrier;
 
@@ -35,9 +35,8 @@ namespace lab1WinForms
             Color SecondaryColor = Color.White;
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
-            Airplanes.AirplanesCount Count = Airplanes.AirplanesCount.SIX;
-            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor,
-                GunOnBoard, HelicoptersOnBoard, Count);
+
+            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor, GunOnBoard, HelicoptersOnBoard);
 
             aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();
