@@ -22,26 +22,27 @@ namespace lab1WinForms
         private const int carrierHeight = 40;
 
         public int MaxSpeed { private set; get; }
-
         public double Weight { private set; get; }
 
         public Color PrimaryColor { private set; get; }
-
         public Color SecondaryColor { private set; get; }
 
         public bool GunOnBoard { private set; get; }
-
         public bool HelicoptersOnBoard { private set; get; }
 
+        public Airplanes.AirplanesCount Count { private set; get; }
+
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, bool gunOnBoard, bool helicoptersOnBoard)
+            Color secondaryColor, bool gunOnBoard, bool helicoptersOnBoard,
+            Airplanes.AirplanesCount airplanesCount)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             PrimaryColor = primaryColor;
             SecondaryColor = secondaryColor;
-            GunOnBoard = gunOnBoard; 
+            GunOnBoard = gunOnBoard;
             HelicoptersOnBoard = helicoptersOnBoard;
+            Count = airplanesCount;
         }
 
         public void SetPosition(int x, int y, int widht, int height)
@@ -55,7 +56,6 @@ namespace lab1WinForms
         public void MoveTransport(Direction direction)
         {
             int shift = Convert.ToInt32(MaxSpeed * 100 / Weight);
-
             switch (direction)
             {
                 case Direction.Left:
@@ -77,7 +77,7 @@ namespace lab1WinForms
                     }
                     break;
                 case Direction.Down:
-                    if(posY + shift < picHeight - carrierHeight)
+                    if (posY + shift < picHeight - carrierHeight)
                     {
                         posY += shift;
                     }
@@ -155,6 +155,10 @@ namespace lab1WinForms
                 g.DrawLine(p, posX + 42, posY + 12, posX + 45, posY + 9);
                 p.Dispose();
             }
+
+            Airplanes airplanes = new Airplanes(Count,
+                PrimaryColor, SecondaryColor, posX, posY);
+            airplanes.DrawAirplanes(g);
         }
     }
 }
