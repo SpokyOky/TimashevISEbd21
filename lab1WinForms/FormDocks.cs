@@ -20,9 +20,6 @@ namespace lab1WinForms
            pictureBox1.Height);
             Draw();
         }
-        /// <summary>
-        /// Метод отрисовки парковки
-        /// </summary>
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
