@@ -39,6 +39,7 @@ namespace lab1WinForms
             aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor,
                 GunOnBoard, HelicoptersOnBoard, Count);
 
+
             aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();
         }
