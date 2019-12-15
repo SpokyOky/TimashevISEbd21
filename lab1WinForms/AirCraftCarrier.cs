@@ -34,6 +34,7 @@ namespace lab1WinForms
         public override void DrawTransport(Graphics g)
         {
             base.DrawTransport(g);
+
             //ВП полоса
             Pen penSecondary = new Pen(SecondaryColor);
             g.DrawLine(penSecondary, new Point(posX + 119, posY + 8), new Point(posX + 27, posY + 30));

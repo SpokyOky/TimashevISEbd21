@@ -75,7 +75,7 @@ namespace lab1WinForms
 
             g.FillPolygon(brushPrimary, pointsBody.ToArray<Point>());
 
-            brushPrimary.Dispose();  
+            brushPrimary.Dispose(); 
         }
     }
 }
