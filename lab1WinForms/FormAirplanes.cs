@@ -101,7 +101,5 @@ namespace lab1WinForms
                 eventAddAirplanes += e;
             }
         }
-
-        
     }
 }
