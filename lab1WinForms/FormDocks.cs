@@ -220,86 +220,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
             formWS.Show();
         }
 
-
-        private bool SaveLevelData(string filename)
-        {
-            if (File.Exists(filename))
-            {
-                File.Delete(filename);
-            }
-
-            using (StreamWriter sw = new StreamWriter(filename))
-            {
-                sw.WriteLine("Level");
-
-                for (int i = 0; i < docks.countPlaces; i++)
-                {
-                    var warship = docks[listBoxLevel.SelectedIndex][i];
-                    if (warship != null)
-                    {
-                        if (warship.GetType().Name == "WarShip")
-                        {
-                            sw.Write(i + ":WarShip:");
-                        }
-                        if (warship.GetType().Name == "AircraftCarrier")
-                        {
-                            sw.Write(i + ":AircraftCarrier:");
-                        }
-                        sw.WriteLine(warship);
-                    }
-                }
-
-                sw.WriteLine("Level");
-            }
-            return true;
-        }
-
-        private bool LoadLevelData(string filename)
-        {
-            if (!File.Exists(filename))
-            {
-                return false;
-            }
-            using (StreamReader sr = new StreamReader(filename))
-            {
-                var strs = sr.ReadLine();
-                if (strs.Contains("Level"))
-                {
-                    int counter = -1;
-                    ITransport warship = null;
-                    while (counter < 1)
-                    {
-                        strs = sr.ReadLine();
-                        if (strs == "Level")
-                        {
-                            counter++;
-                            continue;
-                        }
-
-                        if (string.IsNullOrEmpty(strs))
-                        {
-                            break;
-                        }
-
-                        if (strs.Split(':')[1] == "WarShip")
-                        {
-                            warship = new WarShip(strs.Split(':')[2]);
-                        }
-                        else if (strs.Split(':')[1] == "AircraftCarrier")
-                        {
-                            warship = new AircraftCarrier(strs.Split(':')[2]);
-                        }
-                        docks[listBoxLevel.SelectedIndex][Convert.ToInt32(strs.Split(':')[0])] = warship;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
         private void сохранитьВсёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -349,7 +269,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
             if (saveLevelFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (SaveLevelData(saveLevelFileDialog.FileName))
+                if (docks.SaveLevelData(saveLevelFileDialog.FileName, listBoxLevel.SelectedIndex))
                 {
                     MessageBox.Show("Сохранение левела прошло успешно", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -366,7 +286,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
             if (openLevelFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (LoadLevelData(openLevelFileDialog.FileName))
+                if (docks.LoadLevelData(openLevelFileDialog.FileName, listBoxLevel.SelectedIndex))
                 {
                     MessageBox.Show("Загрузка левела прошла успешно", "Результат", MessageBoxButtons.OK,
     MessageBoxIcon.Information);
