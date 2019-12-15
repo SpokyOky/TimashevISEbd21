@@ -121,13 +121,6 @@ namespace lab1WinForms
             {
                 //самолёт
                 Brush b = new SolidBrush(SecondaryColor);
-                //List<Point> pointsAirplane = new List<Point>(4);
-                //pointsAirplane.Add(new Point(posX + 110, posY + 15));
-                //pointsAirplane.Add(new Point(posX + 105, posY + 20));
-                //pointsAirplane.Add(new Point(posX + 112, posY + 20));
-                //pointsAirplane.Add(new Point(posX + 110, posY + 18));
-
-                //g.FillPolygon(b, pointsAirplane.ToArray<Point>());
 
                 //пушка
                 g.FillRectangle(b, posX + 65, posY + 5, 10, 8);
