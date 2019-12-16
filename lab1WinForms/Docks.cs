@@ -123,6 +123,11 @@ namespace lab1WinForms
             return !places.ContainsKey(index);
         }
 
+        public void Clear()
+        {
+            places.Clear();
+        }
+
         public void Draw(Graphics g)
         {
             DrawPlaces(g);

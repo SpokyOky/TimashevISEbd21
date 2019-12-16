@@ -145,9 +145,19 @@ namespace lab1WinForms
 
         public bool SaveLevelData(string filename, int selectedLevel)
         {
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
             if (File.Exists(filename))
             {
                 File.Delete(filename);
+            }
+
+            if (docksStages[selectedLevel] == null)
+            {
+                return false;
             }
 
             using (StreamWriter sw = new StreamWriter(filename))
@@ -178,15 +188,24 @@ namespace lab1WinForms
 
         public bool LoadLevelData(string filename, int selectedLevel)
         {
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
             if (!File.Exists(filename))
             {
                 return false;
             }
+
+
             using (StreamReader sr = new StreamReader(filename))
             {
                 var strs = sr.ReadLine();
                 if (strs.Contains("Level"))
                 {
+                    docksStages[selectedLevel].Clear();
+
                     int counter = -1;
                     ITransport warship = null;
                     while (counter < 1)
