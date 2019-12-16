@@ -65,20 +65,19 @@ namespace lab1WinForms
                 foreach (var level in docksStages)
                 {
                     sw.WriteLine("Level");
-                    for (int i = 0; i < countPlaces; i++)
+                    foreach (ITransport warship in level)
                     {
                         try
                         {
-                            var warship = level[i];
                             if (warship != null)
                             {
                                 if (warship.GetType().Name == "WarShip")
                                 {
-                                    sw.Write(i + ":WarShip:");
+                                    sw.Write(level.GetKey + ":WarShip:");
                                 }
                                 if (warship.GetType().Name == "AircraftCarrier")
                                 {
-                                    sw.Write(i + ":AircraftCarrier:");
+                                    sw.Write(level.GetKey + ":AircraftCarrier:");
                                 }
                                 sw.WriteLine(warship);
                             }
@@ -239,6 +238,11 @@ namespace lab1WinForms
                 }
             }
             return true;
+        }
+
+        public void Sort()
+        {
+            docksStages.Sort();
         }
     }
 }

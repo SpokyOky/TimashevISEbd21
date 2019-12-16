@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    public class Docks<T, A>
+    public class Docks<T, A> : IEnumerator<T>, IEnumerable<T>, IComparable<Docks<T, A>>
         where T : class, ITransport
         where A : class, IAirplanes
     {
@@ -15,15 +16,17 @@ namespace lab1WinForms
         private int maxPlaces;
         private A[] airplanes;
         private Queue<T> removedTransport;
-        
+
+        private int currentIndex;
 
         private int PicWidth;
         private int PicHeight;
         private const int placeWidth = 200;
         private const int placeHeight = 67;
-
+        
         public Docks(int sizes, int countAiplanes, int picWidth, int picHeight)
         {
+            currentIndex = -1;
             maxPlaces = sizes;
             places = new Dictionary<int, T>();
             airplanes = new A[countAiplanes];
@@ -34,10 +37,15 @@ namespace lab1WinForms
 
         public static int operator +(Docks<T, A> d, T warship)
         {
-            if(d.places.Count == d.maxPlaces)
+            if (d.places.Count == d.maxPlaces)
             {
                 throw new DocksOverflowException();
             }
+            if (d.places.ContainsValue(warship))
+            {
+                throw new DocksAlreadyHaveException();
+            }
+
             for (int i = 0; i < d.maxPlaces / 2; i++)
             {
                 if (d.CheckFreePlaces(i))
@@ -113,14 +121,20 @@ namespace lab1WinForms
             }
         }
 
-        public T GetTransportByKey(int key)
+        public T Current
         {
-            return places.ContainsKey(key) ? places[key] : null;
+            get
+            {
+                return places[places.Keys.ToList()[currentIndex]];
+            }
         }
 
-        private bool CheckFreePlaces(int index)
+        object IEnumerator.Current
         {
-            return !places.ContainsKey(index);
+            get
+            {
+                return Current;
+            }
         }
 
         public void Clear()
@@ -168,7 +182,98 @@ namespace lab1WinForms
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
+        }
 
+        public int GetKey
+        {
+            get
+            {
+                return places.Keys.ToList()[currentIndex];
+            }
+        }
+
+        public T GetTransportByKey(int key)
+        {
+            return places.ContainsKey(key) ? places[key] : null;
+        }
+
+        private bool CheckFreePlaces(int index)
+        {
+            return !places.ContainsKey(index);
+        }
+
+        public void Dispose()
+        {
+            places.Clear();
+        }
+
+        public bool MoveNext()
+        {
+            if (currentIndex + 1 >= places.Count)
+            {
+                Reset();
+                return false;
+            }
+            currentIndex++;
+            return true;
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public int CompareTo(Docks<T, A> other)
+        {
+            if (places.Count > other.places.Count)
+            {
+                return -1;
+            }
+            else if (places.Count < other.places.Count)
+            {
+                return 1;
+            }
+            else if (places.Count > 0)
+            {
+                var thisKeys = places.Keys.ToList();
+                var otherKeys = other.places.Keys.ToList();
+                for (int i = 0; i < places.Count; ++i)
+                {
+                    if (places[thisKeys[i]] is WarShip && other.places[thisKeys[i]] is
+                   AircraftCarrier)
+                    {
+                        return 1;
+                    }
+                    if (places[thisKeys[i]] is AircraftCarrier && other.places[thisKeys[i]]
+                    is WarShip)
+                    {
+                        return -1;
+                    }
+                    if (places[thisKeys[i]] is WarShip && other.places[thisKeys[i]] is
+                    WarShip)
+                    {
+                        return (places[thisKeys[i]] is
+                       WarShip).CompareTo(other.places[thisKeys[i]] is WarShip);
+                    }
+                    if (places[thisKeys[i]] is AircraftCarrier && other.places[thisKeys[i]]
+                    is AircraftCarrier)
+                    {
+                        return (places[thisKeys[i]] is
+                       AircraftCarrier).CompareTo(other.places[thisKeys[i]] is AircraftCarrier);
+                    }
+                }
+            }
+            return 0;
         }
 
         public T this[int ind]

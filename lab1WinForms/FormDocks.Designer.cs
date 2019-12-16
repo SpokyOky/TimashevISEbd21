@@ -50,6 +50,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.saveLevelFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openLevelFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -100,9 +101,9 @@
             // 
             // btnCompareLess
             // 
-            this.btnCompareLess.Location = new System.Drawing.Point(660, 152);
+            this.btnCompareLess.Location = new System.Drawing.Point(660, 116);
             this.btnCompareLess.Name = "btnCompareLess";
-            this.btnCompareLess.Size = new System.Drawing.Size(127, 45);
+            this.btnCompareLess.Size = new System.Drawing.Size(127, 34);
             this.btnCompareLess.TabIndex = 9;
             this.btnCompareLess.Text = "Сравнить свободные места";
             this.btnCompareLess.UseVisualStyleBackColor = true;
@@ -129,7 +130,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(660, 34);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(127, 73);
+            this.btnAdd.Size = new System.Drawing.Size(127, 37);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Припарковать";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@
             // 
             // btnLanding
             // 
-            this.btnLanding.Location = new System.Drawing.Point(660, 113);
+            this.btnLanding.Location = new System.Drawing.Point(660, 77);
             this.btnLanding.Name = "btnLanding";
             this.btnLanding.Size = new System.Drawing.Size(127, 33);
             this.btnLanding.TabIndex = 8;
@@ -170,20 +171,20 @@
             this.сохранитьВсёToolStripMenuItem,
             this.сохранитьЛевелToolStripMenuItem});
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             // 
             // сохранитьВсёToolStripMenuItem
             // 
             this.сохранитьВсёToolStripMenuItem.Name = "сохранитьВсёToolStripMenuItem";
-            this.сохранитьВсёToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьВсёToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.сохранитьВсёToolStripMenuItem.Text = "Сохранить всё";
             this.сохранитьВсёToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВсёToolStripMenuItem_Click);
             // 
             // сохранитьЛевелToolStripMenuItem
             // 
             this.сохранитьЛевелToolStripMenuItem.Name = "сохранитьЛевелToolStripMenuItem";
-            this.сохранитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.сохранитьЛевелToolStripMenuItem.Text = "Сохранить левел";
             this.сохранитьЛевелToolStripMenuItem.Click += new System.EventHandler(this.сохранитьЛевелToolStripMenuItem_Click);
             // 
@@ -193,7 +194,7 @@
             this.загрузитьВсёToolStripMenuItem,
             this.загрузитьЛевелToolStripMenuItem});
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             // 
             // загрузитьВсёToolStripMenuItem
@@ -206,7 +207,7 @@
             // загрузитьЛевелToolStripMenuItem
             // 
             this.загрузитьЛевелToolStripMenuItem.Name = "загрузитьЛевелToolStripMenuItem";
-            this.загрузитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьЛевелToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.загрузитьЛевелToolStripMenuItem.Text = "Загрузить левел";
             this.загрузитьЛевелToolStripMenuItem.Click += new System.EventHandler(this.загрузитьЛевелToolStripMenuItem_Click);
             // 
@@ -223,11 +224,22 @@
             // 
             this.openLevelFileDialog.FileName = "openFileDialog1";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(660, 156);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(127, 34);
+            this.buttonSort.TabIndex = 15;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 432);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBoxLevel);
             this.Controls.Add(this.labelCompareText);
@@ -275,5 +287,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьЛевелToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveLevelFileDialog;
         private System.Windows.Forms.OpenFileDialog openLevelFileDialog;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

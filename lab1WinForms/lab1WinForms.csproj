@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="AirplanesCount.cs" />
     <Compile Include="Docks.cs" />
+    <Compile Include="DocksAlreadyHaveException.cs" />
     <Compile Include="DocksNotFoundException.cs" />
     <Compile Include="DocksOccupiedPlaceException.cs" />
     <Compile Include="DocksOverflowException.cs" />
