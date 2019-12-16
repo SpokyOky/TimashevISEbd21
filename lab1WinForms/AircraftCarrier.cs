@@ -39,6 +39,7 @@ namespace lab1WinForms
             if (GunOnBoard)
             {
                 Brush b = new SolidBrush(SecondaryColor);
+
                 //пушка
                 g.FillRectangle(b, posX + 65, posY + 5, 10, 8);
 
