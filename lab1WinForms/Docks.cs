@@ -131,14 +131,6 @@ namespace lab1WinForms
                 i.Value.DrawTransport(g);
             }
 
-            for (int i = 0; i < maxPlaces; i++)
-            {
-                if (!CheckFreePlaces(i))
-                {
-                    places[i].DrawTransport(g);
-                }
-            }
-
             for (int i = 0; i < airplanes.Length; i++)
             {
                 if (airplanes[i] != null)
@@ -166,12 +158,11 @@ namespace lab1WinForms
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight / 5 + 20));
             }
-            for (int i = 0; i < maxPlaces; i++)
+            for (int i = 0; i < maxPlaces / 2; i++)
             {
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
-
         }
 
         public T this[int ind]
@@ -189,8 +180,16 @@ namespace lab1WinForms
                 if (CheckFreePlaces(ind))
                 {
                     places.Add(ind, value);
-                    places[ind].SetPosition(PicWidth / 15 + 5 + ind * placeWidth,
-                        PicHeight / 5 + 5, PicWidth, PicHeight);
+                    if (ind < 3)
+                    {
+                        places[ind].SetPosition(PicWidth / 15 + 5 + ind * placeWidth,
+                            PicHeight / 5 + 5, PicWidth, PicHeight);
+                    }
+                    else
+                    {
+                        places[ind].SetPosition(PicWidth / 15 + 5 + (maxPlaces - 1 - ind) * placeWidth,
+                        PicHeight * 4 / 5 - placeHeight + 10, PicWidth, PicHeight);
+                    }
                 }
                 else
                 {
