@@ -18,7 +18,7 @@ namespace lab1WinForms
         private const int placeWidth = 200;
         private const int placeHeight = 67;
 
-        public Docks(int sizes, int picWidth, int picHeight)
+        public Docks(int sizes, int countAiplanes, int picWidth, int picHeight)
         {
             maxPlaces = sizes;
             places = new Dictionary<int, T>();

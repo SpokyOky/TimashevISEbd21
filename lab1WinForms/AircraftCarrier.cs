@@ -10,6 +10,7 @@ namespace lab1WinForms
     public class AircraftCarrier: WarShip
     {
         public Color SecondaryColor { private set; get; }
+
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
 
@@ -23,6 +24,11 @@ namespace lab1WinForms
             SecondaryColor = secondaryColor;
             GunOnBoard = gunOnBoard; 
             HelicoptersOnBoard = helicoptersOnBoard;
+        }
+
+        public void SetSecondaryColor(Color color)
+        {
+            SecondaryColor = color;
         }
 
         public override void DrawTransport(Graphics g)
