@@ -34,11 +34,13 @@
             this.btnDown = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCarrier)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxCarrier
             // 
+            this.pictureBoxCarrier.BackColor = System.Drawing.SystemColors.Highlight;
             this.pictureBoxCarrier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxCarrier.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCarrier.Name = "pictureBoxCarrier";
@@ -52,9 +54,9 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(95, 31);
             this.btnCreate.TabIndex = 1;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "WarShip";
             this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.btnCreate.Click += new System.EventHandler(this.btnACC_Click);
             // 
             // btnRight
             // 
@@ -96,11 +98,22 @@
             this.btnUp.UseVisualStyleBackColor = true;
             this.btnUp.Click += new System.EventHandler(this.btnMove_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(665, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 31);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "AircraftCarrier";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnACCwGunHeli_Click);
+            // 
             // FormAircraftCarrier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 462);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnLeft);
             this.Controls.Add(this.btnDown);
@@ -123,6 +136,7 @@
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button button1;
     }
 }
 
