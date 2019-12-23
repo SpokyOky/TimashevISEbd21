@@ -23,7 +23,7 @@ namespace lab1WinForms
         {
             Bitmap bmp = new Bitmap(pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Graphics g = Graphics.FromImage(bmp);
-            aircraftCarrier.DrawCarrier(g);
+            aircraftCarrier.DrawTransport(g);
             pictureBoxCarrier.Image = bmp;
         }
 
