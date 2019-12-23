@@ -67,7 +67,7 @@ namespace lab1WinForms
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
                         var warship = new AircraftCarrier(100, 1000, dialog.Color,
-                            dialogDop.Color, true, true);
+                            dialogDop.Color, AirplanesCount.SIX, true, true);
                         int place = docks[listBoxLevel.SelectedIndex] + warship;
                         Draw();
                     }

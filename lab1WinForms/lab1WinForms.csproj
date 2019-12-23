@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AircraftCarrier.cs" />
+    <Compile Include="AirplanesCount.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Docks.cs" />
+    <Compile Include="Fighter.cs" />
     <Compile Include="FormAircraftCarrier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,10 +69,13 @@
     <Compile Include="FormWarShipConfig.designer.cs">
       <DependentUpon>FormWarShipConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="IAirplanes.cs" />
     <Compile Include="ITransport.cs" />
     <Compile Include="MultiLevelDocks.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleAirplane.cs" />
+    <Compile Include="Stealth.cs" />
     <Compile Include="WarShip.cs" />
     <Compile Include="WarShipBase.cs" />
     <EmbeddedResource Include="FormAircraftCarrier.resx">

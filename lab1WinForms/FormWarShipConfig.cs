@@ -89,7 +89,25 @@ namespace lab1WinForms
                     break;
                 case "AircraftCarrier":
                     warship = new AircraftCarrier(100, 500, 
-                        Color.Black, Color.White, true, true);
+                        Color.Black, Color.White, AirplanesCount.FIVE, true, true);
+                    break;
+                case "SimpleAirplane":
+                    if (warship is AircraftCarrier)
+                    {
+                        (warship as AircraftCarrier).SetAirplaneType(0);
+                    }
+                    break;
+                case "Fighter":
+                    if (warship is AircraftCarrier)
+                    {
+                        (warship as AircraftCarrier).SetAirplaneType(1);
+                    }
+                    break;
+                case "Stealth":
+                    if (warship is AircraftCarrier)
+                    {
+                        (warship as AircraftCarrier).SetAirplaneType(2);
+                    }
                     break;
             }
             DrawTransport();
@@ -139,6 +157,24 @@ namespace lab1WinForms
         {
             eventAddWarship?.Invoke(warship);
             Close();
+        }
+
+        private void lblSimpleAirplane_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelWarShip.DoDragDrop(lblSimpleAirplane.Text,
+                DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void lblFighter_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelWarShip.DoDragDrop(lblFighter.Text,
+                DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void lblStealth_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelWarShip.DoDragDrop(lblStealth.Text,
+                DragDropEffects.Move | DragDropEffects.Copy);
         }
     }
 }
