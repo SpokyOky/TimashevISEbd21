@@ -14,7 +14,6 @@ namespace lab1WinForms
     {
         private ITransport aircraftCarrier;
         
-
         public FormAircraftCarrier()
         {
             InitializeComponent();
@@ -81,8 +80,6 @@ namespace lab1WinForms
                     break;
             }
             Draw();
-        }
-
-        
+        }   
     }
 }
