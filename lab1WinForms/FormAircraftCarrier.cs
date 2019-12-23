@@ -13,7 +13,6 @@ namespace lab1WinForms
     public partial class FormAircraftCarrier : Form
     {
         private ITransport aircraftCarrier;
-        
 
         public FormAircraftCarrier()
         {
@@ -51,9 +50,7 @@ namespace lab1WinForms
             Color SecondaryColor = Color.White;
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
-            AirplanesCount Count = AirplanesCount.SIX;
-            IAirplanes Type;
-            
+            AirplanesCount Count = AirplanesCount.SIX;            
 
             aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor,
                 SecondaryColor, Count, GunOnBoard, HelicoptersOnBoard);
@@ -84,7 +81,5 @@ namespace lab1WinForms
             }
             Draw();
         }
-
-        
     }
 }

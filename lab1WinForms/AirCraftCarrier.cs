@@ -15,7 +15,6 @@ namespace lab1WinForms
 
         private int AirplaneType;
         
-
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, AirplanesCount airplanesCount,
             bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor, secondaryColor)
