@@ -1,8 +1,10 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +20,17 @@ namespace lab1WinForms
 
         const int countLevel = 5;
 
+        private Logger logger;
+
         private int[] shiftX = new int[countLevel];
         private int[] shiftY = new int[countLevel];
 
         public FormDocks()
         {
             InitializeComponent();
+
+            logger = LogManager.GetCurrentClassLogger();
+
             docks = new MultiLevelDocks(countLevel, pictureBoxDocks.Width, pictureBoxDocks.Height);
             for (int i = 0; i < countLevel; i++)
             {
@@ -81,21 +88,32 @@ namespace lab1WinForms
             {
                 if (mtbPlace.Text != "")
                 {
-                    var warship = docks[listBoxLevel.SelectedIndex] - (Convert.ToInt32(mtbPlace.Text) - 1);
-                    if (warship != null)
+                    try
                     {
+                        var warship = docks[listBoxLevel.SelectedIndex] - (Convert.ToInt32(mtbPlace.Text) - 1);
+
                         Bitmap bmp = new Bitmap(pictureBoxSelectedWarship.Width, pictureBoxSelectedWarship.Height);
                         Graphics gr = Graphics.FromImage(bmp);
                         warship.SetPosition(5, 5, pictureBoxSelectedWarship.Width, pictureBoxSelectedWarship.Height);
                         warship.DrawTransport(gr);
                         pictureBoxSelectedWarship.Image = bmp;
+
+                        Draw();
                     }
-                    else
+                    catch (DocksNotFoundException ex)
                     {
+                        logger.Error("Корабль на месте " + mtbPlace.Text + " не найден");
+                        MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
                         Bitmap bmp = new Bitmap(pictureBoxSelectedWarship.Width, pictureBoxSelectedWarship.Height);
                         pictureBoxSelectedWarship.Image = bmp;
                     }
-                    Draw();
+                    catch (Exception ex)
+                    {
+                        logger.Error("Неизвестная ошибка");
+                        MessageBox.Show(ex.Message, "Неизвестная ошибка",
+MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -109,14 +127,23 @@ namespace lab1WinForms
         {
             if (warship != null && listBoxLevel.SelectedIndex > -1)
             {
-                int place = docks[listBoxLevel.SelectedIndex] + warship;
-                if (place > -1)
+                try
                 {
+                    int place = docks[listBoxLevel.SelectedIndex] + warship;
+                    logger.Info("Добавлен корабль " + warship + " на место " + place);
                     Draw();
                 }
-                else
+                catch (DocksOverflowException ex)
                 {
-                    MessageBox.Show("Не удалось поставить корабль");
+                    logger.Error("Переполнение на уровне " + listBoxLevel.SelectedIndex);
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("Неизвестная ошибка");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка",
+MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -132,15 +159,17 @@ namespace lab1WinForms
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (docks.SaveData(saveFileDialog.FileName))
-                {
+                try {
+                    docks.SaveData(saveFileDialog.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Error("Неизвестная ошибка при сохранении");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
+MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -149,16 +178,23 @@ namespace lab1WinForms
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (docks.LoadData(openFileDialog.FileName))
-                {
-
+                try {
+                    docks.LoadData(openFileDialog.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
     MessageBoxIcon.Information);
+                    logger.Info("Загружно из файла " + openFileDialog.FileName);
                 }
-                else
+                catch (DocksOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    logger.Error("Занятое место");
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK,
+ MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("Неизвестная ошибка при сохранении");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
+MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }
