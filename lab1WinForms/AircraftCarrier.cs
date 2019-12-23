@@ -15,7 +15,7 @@ namespace lab1WinForms
         public bool HelicoptersOnBoard { private set; get; }
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
+            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false)
             : base (maxSpeed, weight, primaryColor)
         {
             MaxSpeed = maxSpeed;
@@ -24,6 +24,20 @@ namespace lab1WinForms
             SecondaryColor = secondaryColor;
             GunOnBoard = gunOnBoard; 
             HelicoptersOnBoard = helicoptersOnBoard;
+        }
+
+        public AircraftCarrier(string info) : base(info)
+        {
+            var strs = info.Split(';');
+            if(strs.Length == 6)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                PrimaryColor = Color.FromName(strs[2]);
+                SecondaryColor = Color.FromName(strs[3]);
+                GunOnBoard = Convert.ToBoolean(strs[4]);
+                HelicoptersOnBoard = Convert.ToBoolean(strs[5]);
+            }
         }
 
         public void SetSecondaryColor(Color color)
@@ -76,6 +90,11 @@ namespace lab1WinForms
                 g.DrawLine(p, posX + 42, posY + 12, posX + 45, posY + 9);
                 p.Dispose();
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + SecondaryColor.Name + ";" + GunOnBoard + ";" + HelicoptersOnBoard;
         }
     }
 }

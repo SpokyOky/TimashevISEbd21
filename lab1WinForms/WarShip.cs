@@ -16,6 +16,17 @@ namespace lab1WinForms
             PrimaryColor = primaryColor;
         }
 
+        public WarShip(string info)
+        {
+            var strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                PrimaryColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             int shift = Convert.ToInt32(MaxSpeed * 100 / Weight);
@@ -72,6 +83,11 @@ namespace lab1WinForms
             g.FillPolygon(brushPrimary, pointsBody.ToArray<Point>());
 
             brushPrimary.Dispose();  
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + PrimaryColor.Name;
         }
     }
 }
