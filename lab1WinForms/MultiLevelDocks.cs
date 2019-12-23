@@ -33,5 +33,16 @@ namespace lab1WinForms
                 return null;
             }
         }
+        public ITransport this[int level, int key]
+        {
+            get
+            {
+                if (level > -1 && level < docksStages.Count)
+                {
+                    return docksStages[level].GetTransportByKey(key);
+                }
+                return null;
+            }
+        }
     }
 }
