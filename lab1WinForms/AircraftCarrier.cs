@@ -12,9 +12,6 @@ namespace lab1WinForms
         private int posX;
         private int posY;
 
-        private int startPosX;
-        private int startPosY;
-
         private int picWidth;
         private int picHeight;
 
@@ -46,8 +43,8 @@ namespace lab1WinForms
 
         public void SetPosition(int x, int y, int widht, int height)
         {
-            posX = startPosX = x;
-            posY = startPosY = y;
+            posX = x;
+            posY = y;
             picWidth = widht;
             picHeight = height;
         }
