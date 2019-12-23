@@ -9,15 +9,12 @@ namespace lab1WinForms
 {
     class WarShip : WarShipBase
     {
-        public Color SecondaryColor { protected set; get; }
 
-        public WarShip(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor)
+        public WarShip(int maxSpeed, double weight, Color primaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             PrimaryColor = primaryColor;
-            SecondaryColor = secondaryColor;
         }
 
         public override void MoveTransport(Direction direction)
@@ -75,7 +72,7 @@ namespace lab1WinForms
 
             g.FillPolygon(brushPrimary, pointsBody.ToArray<Point>());
 
-            brushPrimary.Dispose();
+            brushPrimary.Dispose();  
         }
     }
 }

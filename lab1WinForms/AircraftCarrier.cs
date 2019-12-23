@@ -9,12 +9,14 @@ namespace lab1WinForms
 {
     class AircraftCarrier : WarShip
     {
+        public Color SecondaryColor { private set; get; }
+
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
-
+        
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
-            : base (maxSpeed, weight, primaryColor, secondaryColor)
+            : base (maxSpeed, weight, primaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -27,7 +29,6 @@ namespace lab1WinForms
         public override void DrawTransport(Graphics g)
         {
             base.DrawTransport(g);
-
             //ВП полоса
             Pen penSecondary = new Pen(SecondaryColor);
             g.DrawLine(penSecondary, new Point(posX + 119, posY + 8), new Point(posX + 27, posY + 30));
@@ -37,7 +38,6 @@ namespace lab1WinForms
             if (GunOnBoard)
             {
                 Brush b = new SolidBrush(SecondaryColor);
-
                 //пушка
                 g.FillRectangle(b, posX + 65, posY + 5, 10, 8);
 
