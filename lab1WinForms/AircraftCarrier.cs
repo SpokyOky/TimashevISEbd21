@@ -7,7 +7,8 @@ using System.Drawing;
 
 namespace lab1WinForms
 {
-    public class AircraftCarrier: WarShip
+    public class AircraftCarrier : WarShip, IComparable<AircraftCarrier>,
+        IEquatable<AircraftCarrier>
     {
         public Color SecondaryColor { private set; get; }
 
@@ -15,7 +16,7 @@ namespace lab1WinForms
         public bool HelicoptersOnBoard { private set; get; }
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false)
+            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
             : base (maxSpeed, weight, primaryColor)
         {
             MaxSpeed = maxSpeed;
@@ -95,6 +96,75 @@ namespace lab1WinForms
         public override string ToString()
         {
             return base.ToString() + ";" + SecondaryColor.Name + ";" + GunOnBoard + ";" + HelicoptersOnBoard;
+        }
+
+        public int CompareTo(AircraftCarrier other)
+        {
+            var res = (this is WarShip).CompareTo(other is WarShip);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (SecondaryColor != other.SecondaryColor)
+            {
+                SecondaryColor.Name.CompareTo(other.SecondaryColor.Name);
+            }
+            if (GunOnBoard != other.GunOnBoard)
+            {
+                return GunOnBoard.CompareTo(other.GunOnBoard);
+            }
+            if (HelicoptersOnBoard != other.HelicoptersOnBoard)
+            {
+                return  HelicoptersOnBoard.CompareTo(other.HelicoptersOnBoard);
+            }
+            return 0;
+        }
+
+        public bool Equals(AircraftCarrier other)
+        {
+            var res = (this as WarShip).Equals(other as WarShip);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (SecondaryColor!= other.SecondaryColor)
+            {
+                return false;
+            }
+            if (GunOnBoard != other.GunOnBoard)
+            {
+                return false;
+            }
+            if (HelicoptersOnBoard != other.HelicoptersOnBoard)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is AircraftCarrier warshipObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(warshipObj);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

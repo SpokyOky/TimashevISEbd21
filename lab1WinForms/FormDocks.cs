@@ -139,6 +139,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
 MessageBoxIcon.Error);
                 }
+                catch (DocksAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     logger.Error("Неизвестная ошибка");
@@ -198,6 +203,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            docks.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }
