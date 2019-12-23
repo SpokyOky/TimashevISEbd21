@@ -12,8 +12,8 @@ namespace lab1WinForms
 {
     public partial class FormAircraftCarrier : Form
     {
-        private AircraftCarrier aircraftCarrier;
-
+        private ITransport aircraftCarrier;
+        
         public FormAircraftCarrier()
         {
             InitializeComponent();
@@ -23,11 +23,26 @@ namespace lab1WinForms
         {
             Bitmap bmp = new Bitmap(pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Graphics g = Graphics.FromImage(bmp);
-            aircraftCarrier.DrawCarrier(g);
+            aircraftCarrier.DrawTransport(g);
             pictureBoxCarrier.Image = bmp;
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnACC_Click(object sender, EventArgs e)
+        {
+            int MaxSpeed = 200;
+            int Weight = 1000;
+            Color PrimaryColor = Color.Gray;
+            Color SecondaryColor = Color.White;
+            
+            aircraftCarrier = new WarShip(MaxSpeed, Weight, PrimaryColor,
+                SecondaryColor);
+
+            aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
+
+            Draw();
+        }
+
+        private void btnACCwGunHeli_Click(object sender, EventArgs e)
         {
             int MaxSpeed = 200;
             int Weight = 1000;
@@ -36,9 +51,10 @@ namespace lab1WinForms
             bool GunOnBoard = true;
             bool HelicoptersOnBoard = true;
 
-            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor, SecondaryColor, GunOnBoard, HelicoptersOnBoard);
+            aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor,
+                SecondaryColor, GunOnBoard, HelicoptersOnBoard);
 
-            aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
+            aircraftCarrier.SetPosition(10, 210, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();
         }
 
@@ -63,6 +79,6 @@ namespace lab1WinForms
                     break;
             }
             Draw();
-        }
+        }   
     }
 }

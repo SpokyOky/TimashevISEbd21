@@ -54,8 +54,11 @@
     <Compile Include="FormAircraftCarrier.Designer.cs">
       <DependentUpon>FormAircraftCarrier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WarShip.cs" />
+    <Compile Include="WarShipBase.cs" />
     <EmbeddedResource Include="FormAircraftCarrier.resx">
       <DependentUpon>FormAircraftCarrier.cs</DependentUpon>
     </EmbeddedResource>
