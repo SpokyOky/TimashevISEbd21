@@ -12,14 +12,18 @@ namespace lab1WinForms
 {
     public partial class FormDocks : Form
     {
-        Docks<ITransport> docks;
+        private int shiftX = 0;
+        private int shiftY = 0;
+
+        Docks<ITransport, IAirplanes> docks;
         public FormDocks()
         {
             InitializeComponent();
-            docks = new Docks<ITransport>(6, pictureBoxMain.Width,
+            docks = new Docks<ITransport, IAirplanes>(6, 6, pictureBoxMain.Width,
            pictureBoxMain.Height);
             Draw();
         }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxMain.Width, pictureBoxMain.Height);
@@ -48,7 +52,7 @@ namespace lab1WinForms
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
                     var warship = new AircraftCarrier(100, 1000, dialog.Color, 
-                        dialogDop.Color, true, true);
+                        dialogDop.Color, AirplanesCount.SIX, true, true);
                     int place = docks + warship;
                     Draw();
                 }
@@ -74,6 +78,54 @@ namespace lab1WinForms
                     pictureBoxSelectedWarship.Image = bmp;
                 }
                 Draw();
+            }
+        }
+
+        private void btnLanding_Click(object sender, EventArgs e)
+        {
+            int AirplaneType = new Random().Next(3);
+            IAirplanes airplane;
+            switch (AirplaneType)
+            {
+                case 0:
+                    airplane = new Fighter(shiftX, shiftY);
+                    break;
+                case 1:
+                    airplane = new SimpleAirplane(shiftX, shiftY);
+                    break;
+                case 2:
+                    airplane = new Stealth(shiftX, shiftY);
+                    break;
+                default:
+                    airplane = new Stealth(shiftX, shiftY);
+                    break;
+            }
+            docks.AddAirplanes(airplane);
+            shiftX += 100;
+            if (shiftX >= 700)
+            {
+                shiftX = 0;
+                shiftY += 30;
+            }
+            Draw();
+        }
+
+        private void btnCompareLess_Click(object sender, EventArgs e)
+        {
+            if (mtbPlace.Text != "")
+            {
+                if (docks < Convert.ToInt32(mtbPlace.Text))
+                {
+                    labelCompareText.Text = "Свободных мест меньше " + mtbPlace.Text;
+                }
+                else if (docks > Convert.ToInt32(mtbPlace.Text))
+                {
+                    labelCompareText.Text = "Свободных мест больше " + mtbPlace.Text;
+                }
+                else
+                {
+                    labelCompareText.Text = "Свободных мест равно " + mtbPlace.Text;
+                }
             }
         }
     }

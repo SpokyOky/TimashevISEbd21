@@ -7,16 +7,19 @@ using System.Drawing;
 
 namespace lab1WinForms
 {
-    class AircraftCarrier : WarShip
+    class AircraftCarrier: WarShip
     {
         public Color SecondaryColor { private set; get; }
 
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
+        public AirplanesCount Count { private set; get; }
         
+        private int AirplaneType;
+
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
-            : base (maxSpeed, weight, primaryColor)
+            Color secondaryColor, AirplanesCount airplanesCount,
+            bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -24,6 +27,9 @@ namespace lab1WinForms
             SecondaryColor = secondaryColor;
             GunOnBoard = gunOnBoard; 
             HelicoptersOnBoard = helicoptersOnBoard;
+            Count = airplanesCount;
+
+            AirplaneType = new Random().Next(3);
         }
 
         public override void DrawTransport(Graphics g)
@@ -71,6 +77,24 @@ namespace lab1WinForms
                 g.DrawLine(p, posX + 42, posY + 12, posX + 45, posY + 9);
                 p.Dispose();
             }
+
+            IAirplanes airplane;
+            switch (AirplaneType)
+            {
+                case 0:
+                    airplane = new Fighter(posX, posY);
+                    break;
+                case 1:
+                    airplane = new SimpleAirplane(posX, posY);
+                    break;
+                case 2:
+                    airplane = new Stealth(posX, posY);
+                    break;
+                default:
+                    airplane = new Stealth(posX, posY);
+                    break;
+            }
+            airplane.DrawAirplanes(Count, g, SecondaryColor);
         }
     }
 }
