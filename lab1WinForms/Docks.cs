@@ -109,5 +109,34 @@ namespace lab1WinForms
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
         }
+
+        public T this[int ind]
+        {
+            get
+            {
+                if (places.ContainsKey(ind))
+                {
+                    return places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlaces(ind))
+                {
+                    places.Add(ind, value);
+                    if (ind < 3)
+                    {
+                        places[ind].SetPosition(PicWidth / 15 + 5 + ind * placeWidth,
+                            PicHeight / 5 + 5, PicWidth, PicHeight);
+                    }
+                    else
+                    {
+                        places[ind].SetPosition(PicWidth / 15 + 5 + (maxPlaces - 1 - ind) * placeWidth,
+                        PicHeight * 4 / 5 - placeHeight + 10, PicWidth, PicHeight);
+                    }
+                }
+            }
+        }
     }
 }
