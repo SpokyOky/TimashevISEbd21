@@ -10,7 +10,7 @@ namespace lab1WinForms
     public class MultiLevelDocks
     {
         List<Docks<ITransport>> docksStages;
-        private int countPlaces = 6;
+        public int countPlaces = 6;
 
         private int pictureWidth;
         private int pictureHeight;
@@ -39,7 +39,7 @@ namespace lab1WinForms
             }
         }
 
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -55,30 +55,33 @@ namespace lab1WinForms
                     sw.WriteLine("Level");
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        var warship = level[i];
-                        if (warship != null)
+                        try
                         {
-                            if (warship.GetType().Name == "WarShip")
+                            var warship = level[i];
+                            if (warship != null)
                             {
-                                sw.Write(i + ":WarShip:");
+                                if (warship.GetType().Name == "WarShip")
+                                {
+                                    sw.Write(i + ":WarShip:");
+                                }
+                                if (warship.GetType().Name == "AircraftCarrier")
+                                {
+                                    sw.Write(i + ":AircraftCarrier:");
+                                }
+                                sw.WriteLine(warship);
                             }
-                            if (warship.GetType().Name == "AircraftCarrier")
-                            {
-                                sw.Write(i + ":AircraftCarrier:");
-                            }
-                            sw.WriteLine(warship);
                         }
+                        finally { }
                     }
                 }
             }
-            return true;
         }
 
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             using (StreamReader sr = new StreamReader(filename))
             {
@@ -94,7 +97,7 @@ namespace lab1WinForms
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
 
                 int counter = -1;
@@ -126,7 +129,6 @@ namespace lab1WinForms
                     docksStages[counter][Convert.ToInt32(strs.Split(':')[0])] = warship;
                 }
             }
-            return true;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace lab1WinForms
     {
         private Dictionary<int, T> places;
         private int maxPlaces;
+        
 
         private int PicWidth;
         private int PicHeight;
@@ -30,7 +31,7 @@ namespace lab1WinForms
         {
             if(d.places.Count == d.maxPlaces)
             {
-                return -1;
+                throw new DocksOverflowException();
             }
             for (int i = 0; i < d.maxPlaces / 2; i++)
             {
@@ -58,17 +59,14 @@ namespace lab1WinForms
 
         public static T operator -(Docks<T> d, int index)
         {
-            if (index < 0 || index > d.maxPlaces)
-            {
-                return null;
-            }
             if (!d.CheckFreePlaces(index))
             {
                 T warship = d.places[index];
                 d.places.Remove(index);
                 return warship;
             }
-            return null;
+
+            throw new DocksNotFoundException(index);
         }
 
         private bool CheckFreePlaces(int index)
@@ -108,6 +106,7 @@ namespace lab1WinForms
                 g.DrawLine(p, new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5),
                     new Point(PicWidth / 15 + i * placeWidth, PicHeight * 4 / 5 - 20));
             }
+
         }
 
         public T this[int ind]
@@ -135,6 +134,10 @@ namespace lab1WinForms
                         places[ind].SetPosition(PicWidth / 15 + 5 + (maxPlaces - 1 - ind) * placeWidth,
                         PicHeight * 4 / 5 - placeHeight + 10, PicWidth, PicHeight);
                     }
+                }
+                else
+                {
+                    throw new DocksOccupiedPlaceException(ind);
                 }
             }
         }
