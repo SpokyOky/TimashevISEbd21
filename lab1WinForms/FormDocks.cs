@@ -62,16 +62,16 @@ namespace lab1WinForms
                 var warship = docks - (Convert.ToInt32(mtbPlace.Text) - 1);
                 if(warship != null)
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxSelectedCar.Width, pictureBoxSelectedCar.Height);
+                    Bitmap bmp = new Bitmap(pictureBoxSelectedWarship.Width, pictureBoxSelectedWarship.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    warship.SetPosition(5, 5, pictureBoxSelectedCar.Width,pictureBoxSelectedCar.Height);
+                    warship.SetPosition(5, 5, pictureBoxSelectedWarship.Width,pictureBoxSelectedWarship.Height);
                     warship.DrawTransport(gr);
-                    pictureBoxSelectedCar.Image = bmp;
+                    pictureBoxSelectedWarship.Image = bmp;
                 }
                 else
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxSelectedCar.Width, pictureBoxSelectedCar.Height);
-                    pictureBoxSelectedCar.Image = bmp;
+                    Bitmap bmp = new Bitmap(pictureBoxSelectedWarship.Width, pictureBoxSelectedWarship.Height);
+                    pictureBoxSelectedWarship.Image = bmp;
                 }
                 Draw();
             }

@@ -34,9 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.mtbPlace = new System.Windows.Forms.MaskedTextBox();
             this.btnTake = new System.Windows.Forms.Button();
-            this.pictureBoxSelectedCar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSelectedWarship = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedWarship)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxMain
@@ -94,20 +94,20 @@
             this.btnTake.UseVisualStyleBackColor = true;
             this.btnTake.Click += new System.EventHandler(this.btnTake_Click);
             // 
-            // pictureBoxSelectedCar
+            // pictureBoxSelectedWarship
             // 
-            this.pictureBoxSelectedCar.Location = new System.Drawing.Point(664, 270);
-            this.pictureBoxSelectedCar.Name = "pictureBoxSelectedCar";
-            this.pictureBoxSelectedCar.Size = new System.Drawing.Size(120, 40);
-            this.pictureBoxSelectedCar.TabIndex = 7;
-            this.pictureBoxSelectedCar.TabStop = false;
+            this.pictureBoxSelectedWarship.Location = new System.Drawing.Point(664, 270);
+            this.pictureBoxSelectedWarship.Name = "pictureBoxSelectedWarship";
+            this.pictureBoxSelectedWarship.Size = new System.Drawing.Size(120, 40);
+            this.pictureBoxSelectedWarship.TabIndex = 7;
+            this.pictureBoxSelectedWarship.TabStop = false;
             // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 322);
-            this.Controls.Add(this.pictureBoxSelectedCar);
+            this.Controls.Add(this.pictureBoxSelectedWarship);
             this.Controls.Add(this.btnTake);
             this.Controls.Add(this.mtbPlace);
             this.Controls.Add(this.label2);
@@ -117,7 +117,7 @@
             this.Name = "FormDocks";
             this.Text = "FormDocks";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedWarship)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +131,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox mtbPlace;
         private System.Windows.Forms.Button btnTake;
-        private System.Windows.Forms.PictureBox pictureBoxSelectedCar;
+        private System.Windows.Forms.PictureBox pictureBoxSelectedWarship;
     }
 }
