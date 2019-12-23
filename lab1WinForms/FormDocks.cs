@@ -16,16 +16,16 @@ namespace lab1WinForms
         public FormDocks()
         {
             InitializeComponent();
-            docks = new Docks<ITransport>(6, pictureBox1.Width,
-           pictureBox1.Height);
+            docks = new Docks<ITransport>(6, pictureBoxMain.Width,
+           pictureBoxMain.Height);
             Draw();
         }
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Bitmap bmp = new Bitmap(pictureBoxMain.Width, pictureBoxMain.Height);
             Graphics gr = Graphics.FromImage(bmp);
             docks.Draw(gr);
-            pictureBox1.Image = bmp;
+            pictureBoxMain.Image = bmp;
         }
 
         private void btnAddWS_Click(object sender, EventArgs e)
@@ -62,16 +62,16 @@ namespace lab1WinForms
                 var warship = docks - (Convert.ToInt32(mtbPlace.Text) - 1);
                 if(warship != null)
                 {
-                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+                    Bitmap bmp = new Bitmap(pictureBoxSelectedCar.Width, pictureBoxSelectedCar.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    warship.SetPosition(5, 5, pictureBox2.Width,pictureBox2.Height);
+                    warship.SetPosition(5, 5, pictureBoxSelectedCar.Width,pictureBoxSelectedCar.Height);
                     warship.DrawTransport(gr);
-                    pictureBox2.Image = bmp;
+                    pictureBoxSelectedCar.Image = bmp;
                 }
                 else
                 {
-                    Bitmap bmp = new Bitmap(pictureBox2.Width, pictureBox2.Height);
-                    pictureBox2.Image = bmp;
+                    Bitmap bmp = new Bitmap(pictureBoxSelectedCar.Width, pictureBoxSelectedCar.Height);
+                    pictureBoxSelectedCar.Image = bmp;
                 }
                 Draw();
             }

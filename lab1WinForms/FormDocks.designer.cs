@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMain = new System.Windows.Forms.PictureBox();
             this.btnAddWS = new System.Windows.Forms.Button();
             this.btnAddACC = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mtbPlace = new System.Windows.Forms.MaskedTextBox();
             this.btnTake = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBoxSelectedCar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedCar)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBoxMain
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(642, 297);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxMain.Location = new System.Drawing.Point(13, 13);
+            this.pictureBoxMain.Name = "pictureBoxMain";
+            this.pictureBoxMain.Size = new System.Drawing.Size(642, 297);
+            this.pictureBoxMain.TabIndex = 0;
+            this.pictureBoxMain.TabStop = false;
             // 
             // btnAddWS
             // 
@@ -94,30 +94,30 @@
             this.btnTake.UseVisualStyleBackColor = true;
             this.btnTake.Click += new System.EventHandler(this.btnTake_Click);
             // 
-            // pictureBox2
+            // pictureBoxSelectedCar
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(664, 270);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(120, 40);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxSelectedCar.Location = new System.Drawing.Point(664, 270);
+            this.pictureBoxSelectedCar.Name = "pictureBoxSelectedCar";
+            this.pictureBoxSelectedCar.Size = new System.Drawing.Size(120, 40);
+            this.pictureBoxSelectedCar.TabIndex = 7;
+            this.pictureBoxSelectedCar.TabStop = false;
             // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 322);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBoxSelectedCar);
             this.Controls.Add(this.btnTake);
             this.Controls.Add(this.mtbPlace);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddACC);
             this.Controls.Add(this.btnAddWS);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxMain);
             this.Name = "FormDocks";
             this.Text = "FormDocks";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedCar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,12 +125,12 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxMain;
         private System.Windows.Forms.Button btnAddWS;
         private System.Windows.Forms.Button btnAddACC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox mtbPlace;
         private System.Windows.Forms.Button btnTake;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxSelectedCar;
     }
 }
