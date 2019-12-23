@@ -51,7 +51,7 @@ namespace lab1WinForms
             bool HelicoptersOnBoard = true;
 
             aircraftCarrier = new AircraftCarrier(MaxSpeed, Weight, PrimaryColor,
-                SecondaryColor, GunOnBoard, HelicoptersOnBoard);
+                SecondaryColor, AirplanesCount.SIX, GunOnBoard, HelicoptersOnBoard);
 
             aircraftCarrier.SetPosition(10, 210, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
             Draw();

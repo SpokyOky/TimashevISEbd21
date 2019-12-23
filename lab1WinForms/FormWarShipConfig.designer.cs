@@ -33,19 +33,22 @@
             this.labelAircraftCarrier = new System.Windows.Forms.Label();
             this.labelWarShip = new System.Windows.Forms.Label();
             this.panelPictureBox = new System.Windows.Forms.Panel();
+            this.labelSecondColor = new System.Windows.Forms.Label();
+            this.labelMainColor = new System.Windows.Forms.Label();
             this.groupBoxColors = new System.Windows.Forms.GroupBox();
-            this.labelColorWhite = new System.Windows.Forms.Label();
-            this.labelColorBlack = new System.Windows.Forms.Label();
-            this.labelColorBlue = new System.Windows.Forms.Label();
-            this.labelColorGreen = new System.Windows.Forms.Label();
             this.labelColorPink = new System.Windows.Forms.Label();
             this.labelColorMagenta = new System.Windows.Forms.Label();
             this.labelColorYellow = new System.Windows.Forms.Label();
             this.labelColorCrimson = new System.Windows.Forms.Label();
-            this.labelMainColor = new System.Windows.Forms.Label();
-            this.labelSecondColor = new System.Windows.Forms.Label();
+            this.labelColorBlue = new System.Windows.Forms.Label();
+            this.labelColorGreen = new System.Windows.Forms.Label();
+            this.labelColorBlack = new System.Windows.Forms.Label();
+            this.labelColorWhite = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblSimpleAirplane = new System.Windows.Forms.Label();
+            this.lblStealth = new System.Windows.Forms.Label();
+            this.lblFighter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTransport)).BeginInit();
             this.groupBoxWarShipType.SuspendLayout();
             this.panelPictureBox.SuspendLayout();
@@ -64,7 +67,7 @@
             // 
             this.groupBoxWarShipType.Controls.Add(this.labelAircraftCarrier);
             this.groupBoxWarShipType.Controls.Add(this.labelWarShip);
-            this.groupBoxWarShipType.Location = new System.Drawing.Point(13, 13);
+            this.groupBoxWarShipType.Location = new System.Drawing.Point(14, 61);
             this.groupBoxWarShipType.Name = "groupBoxWarShipType";
             this.groupBoxWarShipType.Size = new System.Drawing.Size(200, 100);
             this.groupBoxWarShipType.TabIndex = 1;
@@ -99,12 +102,38 @@
             this.panelPictureBox.Controls.Add(this.labelSecondColor);
             this.panelPictureBox.Controls.Add(this.labelMainColor);
             this.panelPictureBox.Controls.Add(this.pictureBoxTransport);
-            this.panelPictureBox.Location = new System.Drawing.Point(219, 13);
+            this.panelPictureBox.Location = new System.Drawing.Point(220, 61);
             this.panelPictureBox.Name = "panelPictureBox";
             this.panelPictureBox.Size = new System.Drawing.Size(127, 100);
             this.panelPictureBox.TabIndex = 2;
             this.panelPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelPictureBox_DragDrop);
             this.panelPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelPictureBox_DragEnter);
+            // 
+            // labelSecondColor
+            // 
+            this.labelSecondColor.AllowDrop = true;
+            this.labelSecondColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSecondColor.Location = new System.Drawing.Point(55, 46);
+            this.labelSecondColor.Name = "labelSecondColor";
+            this.labelSecondColor.Size = new System.Drawing.Size(68, 50);
+            this.labelSecondColor.TabIndex = 2;
+            this.labelSecondColor.Text = "Secondary Color";
+            this.labelSecondColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSecondColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelSecondColor_DragDrop);
+            this.labelSecondColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            // 
+            // labelMainColor
+            // 
+            this.labelMainColor.AllowDrop = true;
+            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMainColor.Location = new System.Drawing.Point(3, 46);
+            this.labelMainColor.Name = "labelMainColor";
+            this.labelMainColor.Size = new System.Drawing.Size(46, 50);
+            this.labelMainColor.TabIndex = 1;
+            this.labelMainColor.Text = "Primary Color";
+            this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
+            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
             // 
             // groupBoxColors
             // 
@@ -116,48 +145,12 @@
             this.groupBoxColors.Controls.Add(this.labelColorGreen);
             this.groupBoxColors.Controls.Add(this.labelColorBlack);
             this.groupBoxColors.Controls.Add(this.labelColorWhite);
-            this.groupBoxColors.Location = new System.Drawing.Point(352, 16);
+            this.groupBoxColors.Location = new System.Drawing.Point(353, 64);
             this.groupBoxColors.Name = "groupBoxColors";
             this.groupBoxColors.Size = new System.Drawing.Size(153, 100);
             this.groupBoxColors.TabIndex = 3;
             this.groupBoxColors.TabStop = false;
             this.groupBoxColors.Text = "Цвета";
-            // 
-            // labelColorWhite
-            // 
-            this.labelColorWhite.BackColor = System.Drawing.Color.White;
-            this.labelColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorWhite.Location = new System.Drawing.Point(6, 16);
-            this.labelColorWhite.Name = "labelColorWhite";
-            this.labelColorWhite.Size = new System.Drawing.Size(30, 30);
-            this.labelColorWhite.TabIndex = 0;
-            // 
-            // labelColorBlack
-            // 
-            this.labelColorBlack.BackColor = System.Drawing.Color.Black;
-            this.labelColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorBlack.Location = new System.Drawing.Point(6, 58);
-            this.labelColorBlack.Name = "labelColorBlack";
-            this.labelColorBlack.Size = new System.Drawing.Size(30, 30);
-            this.labelColorBlack.TabIndex = 1;
-            // 
-            // labelColorBlue
-            // 
-            this.labelColorBlue.BackColor = System.Drawing.Color.Blue;
-            this.labelColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorBlue.Location = new System.Drawing.Point(42, 58);
-            this.labelColorBlue.Name = "labelColorBlue";
-            this.labelColorBlue.Size = new System.Drawing.Size(30, 30);
-            this.labelColorBlue.TabIndex = 3;
-            // 
-            // labelColorGreen
-            // 
-            this.labelColorGreen.BackColor = System.Drawing.Color.Green;
-            this.labelColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColorGreen.Location = new System.Drawing.Point(42, 16);
-            this.labelColorGreen.Name = "labelColorGreen";
-            this.labelColorGreen.Size = new System.Drawing.Size(30, 30);
-            this.labelColorGreen.TabIndex = 2;
             // 
             // labelColorPink
             // 
@@ -195,35 +188,45 @@
             this.labelColorCrimson.Size = new System.Drawing.Size(30, 30);
             this.labelColorCrimson.TabIndex = 4;
             // 
-            // labelMainColor
+            // labelColorBlue
             // 
-            this.labelMainColor.AllowDrop = true;
-            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelMainColor.Location = new System.Drawing.Point(3, 46);
-            this.labelMainColor.Name = "labelMainColor";
-            this.labelMainColor.Size = new System.Drawing.Size(46, 50);
-            this.labelMainColor.TabIndex = 1;
-            this.labelMainColor.Text = "Primary Color";
-            this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
-            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            this.labelColorBlue.BackColor = System.Drawing.Color.Blue;
+            this.labelColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorBlue.Location = new System.Drawing.Point(42, 58);
+            this.labelColorBlue.Name = "labelColorBlue";
+            this.labelColorBlue.Size = new System.Drawing.Size(30, 30);
+            this.labelColorBlue.TabIndex = 3;
             // 
-            // labelSecondColor
+            // labelColorGreen
             // 
-            this.labelSecondColor.AllowDrop = true;
-            this.labelSecondColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelSecondColor.Location = new System.Drawing.Point(55, 46);
-            this.labelSecondColor.Name = "labelSecondColor";
-            this.labelSecondColor.Size = new System.Drawing.Size(68, 50);
-            this.labelSecondColor.TabIndex = 2;
-            this.labelSecondColor.Text = "Secondary Color";
-            this.labelSecondColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelSecondColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelSecondColor_DragDrop);
-            this.labelSecondColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            this.labelColorGreen.BackColor = System.Drawing.Color.Green;
+            this.labelColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorGreen.Location = new System.Drawing.Point(42, 16);
+            this.labelColorGreen.Name = "labelColorGreen";
+            this.labelColorGreen.Size = new System.Drawing.Size(30, 30);
+            this.labelColorGreen.TabIndex = 2;
+            // 
+            // labelColorBlack
+            // 
+            this.labelColorBlack.BackColor = System.Drawing.Color.Black;
+            this.labelColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorBlack.Location = new System.Drawing.Point(6, 58);
+            this.labelColorBlack.Name = "labelColorBlack";
+            this.labelColorBlack.Size = new System.Drawing.Size(30, 30);
+            this.labelColorBlack.TabIndex = 1;
+            // 
+            // labelColorWhite
+            // 
+            this.labelColorWhite.BackColor = System.Drawing.Color.White;
+            this.labelColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelColorWhite.Location = new System.Drawing.Point(6, 16);
+            this.labelColorWhite.Name = "labelColorWhite";
+            this.labelColorWhite.Size = new System.Drawing.Size(30, 30);
+            this.labelColorWhite.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(13, 119);
+            this.btnAdd.Location = new System.Drawing.Point(14, 167);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(230, 34);
             this.btnAdd.TabIndex = 4;
@@ -233,18 +236,54 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(274, 119);
+            this.btnCancel.Location = new System.Drawing.Point(275, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(230, 34);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // lblSimpleAirplane
+            // 
+            this.lblSimpleAirplane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSimpleAirplane.Location = new System.Drawing.Point(21, 9);
+            this.lblSimpleAirplane.Name = "lblSimpleAirplane";
+            this.lblSimpleAirplane.Size = new System.Drawing.Size(150, 36);
+            this.lblSimpleAirplane.TabIndex = 2;
+            this.lblSimpleAirplane.Text = "SimpleAirplane";
+            this.lblSimpleAirplane.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSimpleAirplane.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblSimpleAirplane_MouseDown);
+            // 
+            // lblStealth
+            // 
+            this.lblStealth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStealth.Location = new System.Drawing.Point(356, 9);
+            this.lblStealth.Name = "lblStealth";
+            this.lblStealth.Size = new System.Drawing.Size(150, 36);
+            this.lblStealth.TabIndex = 6;
+            this.lblStealth.Text = "Stealth";
+            this.lblStealth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStealth.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblStealth_MouseDown);
+            // 
+            // lblFighter
+            // 
+            this.lblFighter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFighter.Location = new System.Drawing.Point(193, 9);
+            this.lblFighter.Name = "lblFighter";
+            this.lblFighter.Size = new System.Drawing.Size(150, 36);
+            this.lblFighter.TabIndex = 7;
+            this.lblFighter.Text = "Fighter";
+            this.lblFighter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFighter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblFighter_MouseDown);
+            // 
             // FormWarShipConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 164);
+            this.ClientSize = new System.Drawing.Size(518, 211);
+            this.Controls.Add(this.lblFighter);
+            this.Controls.Add(this.lblStealth);
+            this.Controls.Add(this.lblSimpleAirplane);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBoxColors);
@@ -280,5 +319,8 @@
         private System.Windows.Forms.Label labelMainColor;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblSimpleAirplane;
+        private System.Windows.Forms.Label lblStealth;
+        private System.Windows.Forms.Label lblFighter;
     }
 }
