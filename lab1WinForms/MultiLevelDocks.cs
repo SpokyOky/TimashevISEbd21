@@ -23,7 +23,7 @@ namespace lab1WinForms
             for (int i = 0; i < countStages; ++i)
             {
                 docksStages.Add(new Docks<ITransport>(
-                    countPlaces, 6, picWidth, picHeight));
+                    countPlaces, picWidth, picHeight));
             }
         }
 
@@ -106,7 +106,7 @@ namespace lab1WinForms
                     {
                         counter++;
                         docksStages.Add(new Docks<ITransport>(countPlaces,
-                            6, pictureWidth, pictureHeight));
+                            pictureWidth, pictureHeight));
                         continue;
                     }
 
