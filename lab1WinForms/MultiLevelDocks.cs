@@ -18,7 +18,7 @@ namespace lab1WinForms
             for (int i = 0; i < countStages; ++i)
             {
                 docksStages.Add(new Docks<ITransport>(
-                    countPlaces, 6, picWidth, picHeight));
+                    countPlaces, picWidth, picHeight));
             }
         }
 
@@ -29,6 +29,17 @@ namespace lab1WinForms
                 if (index > - 1 && index < docksStages.Count)
                 {
                     return docksStages[index];
+                }
+                return null;
+            }
+        }
+        public ITransport this[int level, int key]
+        {
+            get
+            {
+                if (level > -1 && level < docksStages.Count)
+                {
+                    return docksStages[level].GetTransportByKey(key);
                 }
                 return null;
             }
