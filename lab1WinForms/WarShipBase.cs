@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    abstract class WarShipBase : ITransport
+    public abstract class WarShipBase : ITransport
     {
         protected int posX;
         protected int posY;

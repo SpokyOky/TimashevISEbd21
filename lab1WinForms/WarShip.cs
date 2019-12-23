@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    class WarShip : WarShipBase
-    {
-
+    public class WarShip : WarShipBase
+    { 
         public WarShip(int maxSpeed, double weight, Color primaryColor)
         {
             MaxSpeed = maxSpeed;

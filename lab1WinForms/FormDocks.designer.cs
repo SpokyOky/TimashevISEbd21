@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxMain = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDocks = new System.Windows.Forms.PictureBox();
             this.btnAddWS = new System.Windows.Forms.Button();
             this.btnAddACC = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mtbPlace = new System.Windows.Forms.MaskedTextBox();
             this.btnTake = new System.Windows.Forms.Button();
             this.pictureBoxSelectedWarship = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
+            this.labelCompareText = new System.Windows.Forms.Label();
+            this.listBoxLevel = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedWarship)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxMain
+            // pictureBoxDocks
             // 
-            this.pictureBoxMain.Location = new System.Drawing.Point(13, 13);
-            this.pictureBoxMain.Name = "pictureBoxMain";
-            this.pictureBoxMain.Size = new System.Drawing.Size(642, 297);
-            this.pictureBoxMain.TabIndex = 0;
-            this.pictureBoxMain.TabStop = false;
+            this.pictureBoxDocks.Location = new System.Drawing.Point(13, 13);
+            this.pictureBoxDocks.Name = "pictureBoxDocks";
+            this.pictureBoxDocks.Size = new System.Drawing.Size(642, 385);
+            this.pictureBoxDocks.TabIndex = 0;
+            this.pictureBoxDocks.TabStop = false;
             // 
             // btnAddWS
             // 
@@ -102,21 +104,40 @@
             this.pictureBoxSelectedWarship.TabIndex = 7;
             this.pictureBoxSelectedWarship.TabStop = false;
             // 
+            // labelCompareText
+            // 
+            this.labelCompareText.AutoSize = true;
+            this.labelCompareText.Location = new System.Drawing.Point(661, 178);
+            this.labelCompareText.Name = "labelCompareText";
+            this.labelCompareText.Size = new System.Drawing.Size(0, 13);
+            this.labelCompareText.TabIndex = 11;
+            // 
+            // listBoxLevel
+            // 
+            this.listBoxLevel.FormattingEnabled = true;
+            this.listBoxLevel.Location = new System.Drawing.Point(664, 316);
+            this.listBoxLevel.Name = "listBoxLevel";
+            this.listBoxLevel.Size = new System.Drawing.Size(107, 82);
+            this.listBoxLevel.TabIndex = 12;
+            this.listBoxLevel.SelectedIndexChanged += new System.EventHandler(this.listBoxLevel_SelectedIndexChanged);
+            // 
             // FormDocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 322);
+            this.ClientSize = new System.Drawing.Size(805, 410);
+            this.Controls.Add(this.listBoxLevel);
+            this.Controls.Add(this.labelCompareText);
             this.Controls.Add(this.pictureBoxSelectedWarship);
             this.Controls.Add(this.btnTake);
             this.Controls.Add(this.mtbPlace);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddACC);
             this.Controls.Add(this.btnAddWS);
-            this.Controls.Add(this.pictureBoxMain);
+            this.Controls.Add(this.pictureBoxDocks);
             this.Name = "FormDocks";
             this.Text = "FormDocks";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedWarship)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,12 +146,14 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxMain;
+        private System.Windows.Forms.PictureBox pictureBoxDocks;
         private System.Windows.Forms.Button btnAddWS;
         private System.Windows.Forms.Button btnAddACC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox mtbPlace;
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.PictureBox pictureBoxSelectedWarship;
+        private System.Windows.Forms.Label labelCompareText;
+        private System.Windows.Forms.ListBox listBoxLevel;
     }
 }
