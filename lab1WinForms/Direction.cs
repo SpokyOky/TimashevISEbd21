@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    enum Direction
+    public enum Direction
     {
         Up,
         Down,

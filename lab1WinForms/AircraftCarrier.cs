@@ -7,13 +7,12 @@ using System.Drawing;
 
 namespace lab1WinForms
 {
-    class AircraftCarrier : WarShip
+    public class AircraftCarrier: WarShip
     {
         public Color SecondaryColor { private set; get; }
-
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
-        
+
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
             : base (maxSpeed, weight, primaryColor)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1WinForms
 {
-    interface ITransport
+    public interface ITransport
     {
         void SetPosition(int x, int y, int widht, int height);
 
