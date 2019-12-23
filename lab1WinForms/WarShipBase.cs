@@ -34,5 +34,10 @@ namespace lab1WinForms
             picWidth = widht;
             picHeight = height;
         }
+
+        public void SetPrimaryColor(Color color)
+        {
+            PrimaryColor = color;
+        }
     }
 }

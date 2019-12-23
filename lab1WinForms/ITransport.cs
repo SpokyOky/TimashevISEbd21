@@ -14,5 +14,7 @@ namespace lab1WinForms
         void MoveTransport(Direction direction);
 
         void DrawTransport(Graphics g);
+
+        void SetPrimaryColor(Color color);
     }
 }

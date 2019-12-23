@@ -13,7 +13,7 @@ namespace lab1WinForms
     public partial class FormAircraftCarrier : Form
     {
         private ITransport aircraftCarrier;
-     
+        
         public FormAircraftCarrier()
         {
             InitializeComponent();

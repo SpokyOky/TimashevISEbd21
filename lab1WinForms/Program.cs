@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace lab1WinForms
 {
+    public delegate void warshipDelegate(ITransport warship);
+
     static class Program
     {
         [STAThread]
