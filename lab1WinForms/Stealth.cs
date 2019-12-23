@@ -36,6 +36,5 @@ namespace lab1WinForms
                 b.Dispose();
             }
         }
-
     }
 }
