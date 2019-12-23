@@ -25,14 +25,6 @@ namespace lab1WinForms
             globalPosY = posY;
         }
 
-        public enum AirplanesCount
-        {
-            THREE,
-            FOUR,
-            FIVE,
-            SIX
-        }
-
         private int CountToInt(AirplanesCount airplanesCount)
         {
             return (int)airplanesCount + 3;

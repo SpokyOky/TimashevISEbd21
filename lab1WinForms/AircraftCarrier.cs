@@ -12,9 +12,6 @@ namespace lab1WinForms
         private int posX;
         private int posY;
 
-        private int startPosX;
-        private int startPosY;
-
         private int picWidth;
         private int picHeight;
 
@@ -30,11 +27,11 @@ namespace lab1WinForms
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
 
-        public Airplanes.AirplanesCount Count { private set; get; }
+        public AirplanesCount Count { private set; get; }
 
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
             Color secondaryColor, bool gunOnBoard, bool helicoptersOnBoard,
-            Airplanes.AirplanesCount airplanesCount)
+            AirplanesCount airplanesCount)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -47,8 +44,8 @@ namespace lab1WinForms
 
         public void SetPosition(int x, int y, int widht, int height)
         {
-            posX = startPosX = x;
-            posY = startPosY = y;
+            posX = x;
+            posY = y;
             picWidth = widht;
             picHeight = height;
         }
