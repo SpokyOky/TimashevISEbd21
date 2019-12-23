@@ -11,10 +11,13 @@ namespace lab1WinForms
     {
         public bool GunOnBoard { private set; get; }
         public bool HelicoptersOnBoard { private set; get; }
+        public AirplanesCount Count { private set; get; }
 
+        private int AirplaneType;
+        
         public AircraftCarrier(int maxSpeed, double weight, Color primaryColor,
-            Color secondaryColor, bool gunOnBoard = false, bool helicoptersOnBoard = false) 
-            : base (maxSpeed, weight, primaryColor, secondaryColor)
+            Color secondaryColor, AirplanesCount airplanesCount,
+            bool gunOnBoard = false, bool helicoptersOnBoard = false) : base (maxSpeed, weight, primaryColor, secondaryColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -22,6 +25,9 @@ namespace lab1WinForms
             SecondaryColor = secondaryColor;
             GunOnBoard = gunOnBoard; 
             HelicoptersOnBoard = helicoptersOnBoard;
+            Count = airplanesCount;
+
+            AirplaneType = new Random().Next(0, 3);
         }
 
         public override void DrawTransport(Graphics g)
@@ -37,7 +43,6 @@ namespace lab1WinForms
             if (GunOnBoard)
             {
                 Brush b = new SolidBrush(SecondaryColor);
-
                 //пушка
                 g.FillRectangle(b, posX + 65, posY + 5, 10, 8);
 
@@ -71,6 +76,23 @@ namespace lab1WinForms
                 g.DrawLine(p, posX + 42, posY + 12, posX + 45, posY + 9);
                 p.Dispose();
             }
+
+            IAirplanes airplanes;
+
+            switch (AirplaneType)
+            {
+                case 0:
+                    airplanes = new Fighter(posX, posY);
+                    break;
+                case 1:
+                    airplanes = new Stealth(posX, posY);
+                    break;
+                default:
+                    airplanes = new SimpleAirplane(posX, posY);
+                    break;
+            }
+
+            airplanes.DrawAirplanes(Count, g, SecondaryColor);
         }
     }
 }
