@@ -34,8 +34,7 @@ namespace lab1WinForms
             Color PrimaryColor = Color.Gray;
             Color SecondaryColor = Color.White;
             
-            aircraftCarrier = new WarShip(MaxSpeed, Weight, PrimaryColor,
-                SecondaryColor);
+            aircraftCarrier = new WarShip(MaxSpeed, Weight, PrimaryColor);
 
             aircraftCarrier.SetPosition(10, 10, pictureBoxCarrier.Width, pictureBoxCarrier.Height);
 
@@ -79,6 +78,6 @@ namespace lab1WinForms
                     break;
             }
             Draw();
-        }   
+        }
     }
 }

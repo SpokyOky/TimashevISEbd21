@@ -40,7 +40,7 @@
             // 
             // pictureBoxCarrier
             // 
-            this.pictureBoxCarrier.BackColor = System.Drawing.SystemColors.Highlight;
+            this.pictureBoxCarrier.BackColor = System.Drawing.Color.DodgerBlue;
             this.pictureBoxCarrier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxCarrier.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCarrier.Name = "pictureBoxCarrier";
