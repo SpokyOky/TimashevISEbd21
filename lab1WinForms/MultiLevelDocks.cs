@@ -134,5 +134,6 @@ namespace lab1WinForms
         {
             docksStages.Sort();
         }
+
     }
 }
