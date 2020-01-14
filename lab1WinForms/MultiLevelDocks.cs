@@ -197,7 +197,6 @@ namespace lab1WinForms
                 return false;
             }
 
-
             using (StreamReader sr = new StreamReader(filename))
             {
                 var strs = sr.ReadLine();

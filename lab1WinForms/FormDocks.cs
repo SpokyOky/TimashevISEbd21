@@ -182,7 +182,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
         private void listBoxLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();

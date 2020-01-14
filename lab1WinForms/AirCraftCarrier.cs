@@ -201,6 +201,6 @@ namespace lab1WinForms
             {
                 return Equals(warshipObj);
             }
-        }
+        }
     }
 }
