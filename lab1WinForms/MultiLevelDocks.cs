@@ -10,7 +10,7 @@ namespace lab1WinForms
     public class MultiLevelDocks
     {
         List<Docks<ITransport>> docksStages;
-        private int countPlaces = 6;
+        public int countPlaces = 6;
 
         private int pictureWidth;
         private int pictureHeight;
@@ -124,6 +124,104 @@ namespace lab1WinForms
                         warship = new AircraftCarrier(strs.Split(':')[2]);
                     }
                     docksStages[counter][Convert.ToInt32(strs.Split(':')[0])] = warship;
+                }
+            }
+            return true;
+        }
+
+        public bool SaveLevelData(string filename, int selectedLevel)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine("Level");
+
+                for (int i = 0; i < countPlaces; i++)
+                {
+                    var warship = docksStages[selectedLevel][i];
+                    if (warship != null)
+                    {
+                        if (warship.GetType().Name == "WarShip")
+                        {
+                            sw.Write(i + ":WarShip:");
+                        }
+                        if (warship.GetType().Name == "AircraftCarrier")
+                        {
+                            sw.Write(i + ":AircraftCarrier:");
+                        }
+                        sw.WriteLine(warship);
+                    }
+                }
+
+                sw.WriteLine("Level");
+            }
+            return true;
+        }
+
+        public bool LoadLevelData(string filename, int selectedLevel)
+        {
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < docksStages[selectedLevel].maxPlaces; i++)
+            {
+                if (docksStages[selectedLevel][i] != null)
+                {
+                    return false;
+                }
+            }
+
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                var strs = sr.ReadLine();
+                if (strs.Contains("Level"))
+                {
+                    int counter = -1;
+                    ITransport warship = null;
+                    while (counter < 1)
+                    {
+                        strs = sr.ReadLine();
+                        if (strs == "Level")
+                        {
+                            counter++;
+                            continue;
+                        }
+
+                        if (string.IsNullOrEmpty(strs))
+                        {
+                            break;
+                        }
+
+                        if (strs.Split(':')[1] == "WarShip")
+                        {
+                            warship = new WarShip(strs.Split(':')[2]);
+                        }
+                        else if (strs.Split(':')[1] == "AircraftCarrier")
+                        {
+                            warship = new AircraftCarrier(strs.Split(':')[2]);
+                        }
+                        docksStages[selectedLevel][Convert.ToInt32(strs.Split(':')[0])] = warship;
+                    }
+                }
+                else
+                {
+                    return false;
                 }
             }
             return true;
