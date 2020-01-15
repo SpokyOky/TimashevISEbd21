@@ -11,7 +11,7 @@ namespace lab1WinForms
         where T : class, ITransport
     {
         private Dictionary<int, T> places;
-        private int maxPlaces;
+        public int maxPlaces { get; private set; }
 
         private int PicWidth;
         private int PicHeight;

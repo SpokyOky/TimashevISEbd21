@@ -136,6 +136,11 @@ namespace lab1WinForms
                 File.Delete(filename);
             }
 
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
             using (StreamWriter sw = new StreamWriter(filename))
             {
                 sw.WriteLine("Level");
@@ -168,6 +173,20 @@ namespace lab1WinForms
             {
                 return false;
             }
+
+            if (selectedLevel < 0 || selectedLevel >= countPlaces)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < docksStages[selectedLevel].maxPlaces; i++)
+            {
+                if (docksStages[selectedLevel][i] != null)
+                {
+                    return false;
+                }
+            }
+
             using (StreamReader sr = new StreamReader(filename))
             {
                 var strs = sr.ReadLine();
